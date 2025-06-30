@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +62,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: #00d4ff;
             text-decoration: none;
@@ -78,7 +77,7 @@
 
         .logo::before {
             content: "◆";
-            font-size: 1.2rem;
+            font-size: 1rem;
             animation: pulse 2s infinite;
         }
 
@@ -90,7 +89,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-links a {
@@ -100,6 +99,7 @@
             font-weight: 400;
             position: relative;
             padding: 0.5rem 0;
+            font-size: 0.9rem;
         }
 
         .nav-links a::after {
@@ -121,14 +121,34 @@
             color: #00d4ff;
         }
 
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #00d4ff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
         /* Hero Section */
         .hero {
-            margin-top: 100px;
-            padding: 6rem 0;
+            margin-top: 80px;
+            padding: 4rem 0;
             text-align: center;
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 213, 128, 0.05));
-            border-radius: 30px;
-            margin: 120px 20px 4rem;
+            border-radius: 20px;
+            margin: 100px 15px 3rem;
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -155,11 +175,12 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            padding: 0 15px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             color: #ffffff;
             font-weight: 900;
             line-height: 1.1;
@@ -183,19 +204,19 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: #cccccc;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         /* Welcome message */
         .welcome-message {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #FFD580;
             font-weight: 300;
             margin-bottom: 1rem;
@@ -206,9 +227,9 @@
         /* Author Info with Photos */
         .author-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
@@ -216,8 +237,8 @@
 
         .author-card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
+            padding: 1.5rem;
+            border-radius: 15px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
@@ -243,7 +264,7 @@
         }
 
         .author-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
             border-color: rgba(0, 212, 255, 0.3);
         }
@@ -276,15 +297,15 @@
         }
 
         .author-photo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             position: relative;
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.2);
@@ -292,22 +313,22 @@
         }
 
         .author-photo img {
-            width: 114px;
-            height: 114px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .author-photo.placeholder {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
         }
 
         .author-card h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: #00d4ff;
@@ -318,7 +339,7 @@
         }
 
         .author-card p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #ffffff;
             position: relative;
@@ -332,9 +353,9 @@
 
         .section {
             background: rgba(0, 0, 0, 0.4);
-            margin: 3rem 20px;
-            padding: 4rem;
-            border-radius: 25px;
+            margin: 2rem 15px;
+            padding: 2.5rem;
+            border-radius: 20px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
@@ -361,8 +382,8 @@
 
         .section h2 {
             color: #ffffff;
-            margin-bottom: 3rem;
-            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
             text-align: center;
             font-weight: 800;
             background: linear-gradient(135deg, #00d4ff, #FFD580);
@@ -373,8 +394,8 @@
 
         .section h3 {
             color: #00d4ff;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 700;
         }
 
@@ -383,14 +404,15 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .lang-toggle-btn {
             background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
             font-size: 0.9rem;
@@ -417,20 +439,20 @@
 
         .summary-card {
             background: rgba(0, 0, 0, 0.3);
-            padding: 3rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: 15px;
             border-left: 5px solid #00d4ff;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .summary-card p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
             text-align: justify;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.6;
             color: #e0e0e0;
         }
 
@@ -442,29 +464,29 @@
         /* Downloads Grid */
         .downloads-intro {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .downloads-intro p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #cccccc;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .downloads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .download-card {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 213, 128, 0.1));
-            padding: 3rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -490,32 +512,32 @@
         }
 
         .download-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(0, 212, 255, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
             border-color: rgba(0, 212, 255, 0.3);
         }
 
         .download-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
             color: #ffffff;
             position: relative;
             z-index: 2;
         }
 
         .download-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: #ffffff;
         }
 
         .download-card p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #cccccc;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Language selector for downloads */
@@ -523,17 +545,18 @@
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .lang-btn {
             background: linear-gradient(135deg, #00d4ff, #FFD580);
             color: #000000;
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 1.5rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -565,17 +588,17 @@
 
         .lang-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
         }
 
         .download-btn {
             background: linear-gradient(135deg, #00d4ff, #FFD580);
             color: #000000;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -607,26 +630,26 @@
 
         .download-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
 
         /* Abstract Section */
         .abstract {
             background: rgba(0, 0, 0, 0.3);
-            padding: 3rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: 15px;
             border-left: 5px solid #00d4ff;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .abstract p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
             text-align: justify;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.6;
             color: #e0e0e0;
         }
 
@@ -638,40 +661,40 @@
         /* Abstract Download Section */
         .abstract-download {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 213, 128, 0.1));
-            padding: 3rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
         }
 
         .abstract-download h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: #ffffff;
         }
 
         .abstract-download p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #cccccc;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Sources Section */
         .sources-list {
             display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .source-item {
             background: rgba(0, 0, 0, 0.3);
-            padding: 2.5rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 12px;
             border-left: 4px solid #00d4ff;
             transition: all 0.3s ease;
             backdrop-filter: blur(15px);
@@ -680,37 +703,37 @@
 
         .source-item:hover {
             background: rgba(0, 212, 255, 0.05);
-            transform: translateX(8px);
+            transform: translateX(5px);
             border-left-color: #FFD580;
         }
 
         .source-title {
             color: #00d4ff;
             font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
         }
 
         .source-details {
             color: #cccccc;
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
             font-weight: 300;
         }
 
         /* Contact Section */
         .contact-info {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             background: rgba(0, 212, 255, 0.05);
-            border-radius: 20px;
+            border-radius: 15px;
             border: 1px solid rgba(0, 212, 255, 0.2);
             backdrop-filter: blur(20px);
         }
 
         .contact-info p {
-            margin: 1.5rem 0;
-            font-size: 1.2rem;
+            margin: 1.2rem 0;
+            font-size: 1.1rem;
             font-weight: 300;
         }
 
@@ -732,17 +755,18 @@
 
         .custom-btn {
             background: linear-gradient(135deg, #00d4ff, #FFD580);
-            color: #ffffff;
-            padding: 1.2rem 3rem;
+            color: #000000;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             font-family: 'Nunito Sans', sans-serif;
+            margin: 0.5rem;
         }
 
         .custom-btn:hover {
@@ -754,8 +778,8 @@
         footer {
             background: rgba(0, 0, 0, 0.8);
             text-align: center;
-            padding: 4rem 0;
-            margin-top: 5rem;
+            padding: 3rem 0;
+            margin-top: 4rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
         }
@@ -766,36 +790,116 @@
         }
 
         .footer-content p {
-            margin: 1rem 0;
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .downloads-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
 
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                padding: 3rem 0;
+                margin: 80px 10px 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .author-info {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            .section {
+                margin: 1.5rem 10px;
+                padding: 1.5rem;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            
             .downloads-grid {
                 grid-template-columns: 1fr;
             }
-
-            .section {
-                margin: 2rem 10px;
-                padding: 2.5rem;
-            }
-
-            .author-info {
-                grid-template-columns: 1fr;
-            }
-
+            
             .language-selector {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .custom-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .section h3 {
+                font-size: 1.3rem;
+            }
+            
+            .download-card {
+                padding: 1.5rem;
+            }
+            
+            .download-btn, .lang-btn {
+                padding: 0.8rem 1.5rem;
             }
         }
 
@@ -817,7 +921,7 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 12px;
+            width: 10px;
         }
 
         ::-webkit-scrollbar-track {
@@ -826,7 +930,7 @@
 
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(135deg, #00d4ff, #FFD580);
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
@@ -853,7 +957,14 @@
     <header>
         <nav class="container">
             <a href="#" class="logo">Literature Review & Internship Report</a>
-            <ul class="nav-links">
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#abstract">Abstract</a></li>
                 <li><a href="#summary">Summary</a></li>
                 <li><a href="#downloads">Downloads</a></li>
@@ -863,41 +974,39 @@
         </nav>
     </header>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <div class="welcome-message">So glad you're here — welcome!</div>
-      <h1>The Relevance of <span class="accounting">Accounting</span> in the <span class="music-sector">Music Sector</span></h1>
-      <p>An advanced investigation into accounting challenges in revenue recognition, intangible assets and royalty distribution in the era of AI-powered music streaming platforms.</p>
-      
-      <div class="author-info" style="display: flex; gap: 20px; align-items: stretch;">
-        
-        <a href="https://www.linkedin.com/in/paulo-brito-lanca/" target="_blank"
-           class="author-card author"
-           style="flex: 1; text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
-          <div class="author-photo placeholder">👤</div>
-          <h3>Author</h3>
-          <p>Paulo Monteiro</p>
-        </a>
-        
-        <a href="https://www.uminho.pt/PT" target="_blank"
-           class="author-card institution"
-           style="flex: 1; text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
-          <div class="author-photo placeholder">🏛️</div>
-          <h3>Institution</h3>
-          <p>University of Minho</p>
-        </a>
-        
-        <div class="author-card date" style="flex: 1;">
-          <div class="author-photo placeholder">📅</div>
-          <h3>Date</h3>
-          <p>June 2025</p>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="welcome-message">So glad you're here — welcome!</div>
+                <h1>The Relevance of <span class="accounting">Accounting</span> in the <span class="music-sector">Music Sector</span></h1>
+                <p>An advanced investigation into accounting challenges in revenue recognition, intangible assets and royalty distribution in the era of AI-powered music streaming platforms.</p>
+                
+                <div class="author-info">
+                    <a href="https://www.linkedin.com/in/paulo-brito-lanca/" target="_blank"
+                       class="author-card author"
+                       style="text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
+                        <div class="author-photo placeholder">👤</div>
+                        <h3>Author</h3>
+                        <p>Paulo Monteiro</p>
+                    </a>
+                    
+                    <a href="https://www.uminho.pt/PT" target="_blank"
+                       class="author-card institution"
+                       style="text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
+                        <div class="author-photo placeholder">🏛️</div>
+                        <h3>Institution</h3>
+                        <p>University of Minho</p>
+                    </a>
+                    
+                    <div class="author-card date">
+                        <div class="author-photo placeholder">📅</div>
+                        <h3>Date</h3>
+                        <p>June 2025</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <main class="container">
         <section id="abstract" class="section">
@@ -930,7 +1039,7 @@
             <div class="downloads-intro">
                 <p>Access all research materials, presentations, and supplementary resources related to this academic work on accounting in the digital music sector.</p>
             </div>
-           <div class="downloads-grid">
+            <div class="downloads-grid">
                 <div class="download-card">
                     <div class="download-icon">📊</div>
                     <h3>Presentation Slides</h3>
@@ -941,348 +1050,204 @@
                     </div>
                 </div>
 
-<div class="download-card">
-  <div class="download-icon">📄</div>
-  <h3>Full Internship Report and Literature Review</h3>
-  <p>Complete research report, comprising the methodology, detailed findings, and final conclusions.</p>
-  <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revis%C3%A3o%20Liter%C3%A1ria%20%2B%20Relat%C3%B3rio%20De%20Est%C3%A1gio%20-%20Paulo%20Monteiro%20-%20A%20Relev%C3%A2ncia%20da%20Contabilidade%20para%20o%20Setor%20Musical%20-%20Vers%C3%A3o%20Final.pdf" 
-     class="download-btn" download>
-    <span>Download Abstract (Portuguese)</span>
-  </a>
-</div>
-
+                <div class="download-card">
+                    <div class="download-icon">📄</div>
+                    <h3>Full Internship Report and Literature Review</h3>
+                    <p>Complete research report, comprising the methodology, detailed findings, and final conclusions.</p>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revis%C3%A3o%20Liter%C3%A1ria%20%2B%20Relat%C3%B3rio%20De%20Est%C3%A1gio%20-%20Paulo%20Monteiro%20-%20A%20Relev%C3%A2ncia%20da%20Contabilidade%20para%20o%20Setor%20Musical%20-%20Vers%C3%A3o%20Final.pdf" 
+                       class="download-btn" download>
+                        <span>Download Abstract (Portuguese)</span>
+                    </a>
+                </div>
 
                 <div class="download-card">
                     <div class="download-icon">🖼️</div>
                     <h3>Research Images</h3>
                     <p>Collection of 3D visual elements used in the PowerPoint presentation. All images are licensed under Creative Commons Attribution.</p>
                     <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-images.zip')"><span>Download All Images (ZIP)</span></a>
-                    </div>
-               </div>
+                </div>
+            </div>
+        </section>
                     
         <section id="sources" class="section">
             <h2>Bibliographic References</h2>
-           <p style="text-align: center; font-size: 1.1rem; color: #cccccc; margin-bottom: 1rem;">
-  Main bibliographic sources used in this research — available for download by clicking each title.
-</p>
-<p style="text-align: center; font-size: 1.1rem; color: #cccccc; margin-bottom: 3rem;">
-  If any author requests the removal of their document, please contact me and I will address the matter promptly.
-</p>
+            <p style="text-align: center; font-size: 1rem; color: #cccccc; margin-bottom: 1rem;">
+                Main bibliographic sources used in this research — available for download by clicking each title.
+            </p>
+            <p style="text-align: center; font-size: 1rem; color: #cccccc; margin-bottom: 2rem;">
+                If any author requests the removal of their document, please contact me and I will address the matter promptly.
+            </p>
 
-            
-<div class="sources-list">
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue-Sharing%20Allocation%20Strategies%20for%20Two-Sided%20Media%20Platforms%20Pro-Rata%20versus%20User-Centric.pdf" class="source-title" download>
-      Revenue-Sharing Allocation Strategies
-    </a>
-    <div class="source-details">
-      Alaei, S. et al. (2020). Revenue-Sharing Allocation Strategies for Two-Sided Media Platforms: Pro-Rata versus User-Centric
-    </div>
-  </div>
+            <div class="sources-list">
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue-Sharing%20Allocation%20Strategies%20for%20Two-Sided%20Media%20Platforms%20Pro-Rata%20versus%20User-Centric.pdf" class="source-title" download>
+                        Revenue-Sharing Allocation Strategies
+                    </a>
+                    <div class="source-details">
+                        Alaei, S. et al. (2020). Revenue-Sharing Allocation Strategies for Two-Sided Media Platforms: Pro-Rata versus User-Centric
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Digital%20transformation%2C%20blockchain%2C%20and%20the%20music%20industry%20A%20review%20from%20the%20perspective%20of%20performers%20collective%20management%20organizations.pdf" class="source-title" download>Digital Transformation and Blockchain</a>
-    <div class="source-details">
-      Arenal, A. et al., (2024). Digital transformation, blockchain, and the music industry: A review from the perspective of performers' collective management organizations - Telecommunications Policy
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Digital%20transformation%2C%20blockchain%2C%20and%20the%20music%20industry%20A%20review%20from%20the%20perspective%20of%20performers%20collective%20management%20organizations.pdf" class="source-title" download>Digital Transformation and Blockchain</a>
+                    <div class="source-details">
+                        Arenal, A. et al., (2024). Digital transformation, blockchain, and the music industry: A review from the perspective of performers' collective management organizations - Telecommunications Policy
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Accounting%20and%20music%20The%20role%20of%20Giuseppe%20Verdi%20in%20shaping%20the%20nineteenth-century%20culture%20industry.pdf" class="source-title" download>Accounting and Music History</a>
-    <div class="source-details">
-      Balluchi, F. et al., (2021). Accounting and music: The role of Giuseppe Verdi in shaping the nineteenth-century culture industry – Accounting History
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Accounting%20and%20music%20The%20role%20of%20Giuseppe%20Verdi%20in%20shaping%20the%20nineteenth-century%20culture%20industry.pdf" class="source-title" download>Accounting and Music History</a>
+                    <div class="source-details">
+                        Balluchi, F. et al., (2021). Accounting and music: The role of Giuseppe Verdi in shaping the nineteenth-century culture industry – Accounting History
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue%20sharing%20at%20music%20streaming%20platforms.pdf" class="source-title" download>Revenue Sharing at Streaming Platforms</a>
-    <div class="source-details">
-      Bergantiños, G. e Moreno-Ternero, J. (2023). Revenue sharing at music streaming platforms
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue%20sharing%20at%20music%20streaming%20platforms.pdf" class="source-title" download>Revenue Sharing at Streaming Platforms</a>
+                    <div class="source-details">
+                        Bergantiños, G. e Moreno-Ternero, J. (2023). Revenue sharing at music streaming platforms
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Taxes%20and%20the%20working%20musician.pdf" class="source-title" download>Taxes and the Working Musician</a>
-    <div class="source-details">
-      Friedman, A. (n.d.). Taxes and the working musician - Dollars & Sense
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Taxes%20and%20the%20working%20musician.pdf" class="source-title" download>Taxes and the Working Musician</a>
+                    <div class="source-details">
+                        Friedman, A. (n.d.). Taxes and the working musician - Dollars & Sense
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Financialization%20of%20music%20song%20management%20firms%20and%20fractionalized%20copyright.pdf" class="source-title" download>Financialization of Music</a>
-    <div class="source-details">
-      Galuszka, P. e Legiedz, T. (2024). Financialization of music: song management firms and fractionalized copyright - Information, Communication & Society
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Financialization%20of%20music%20song%20management%20firms%20and%20fractionalized%20copyright.pdf" class="source-title" download>Financialization of Music</a>
+                    <div class="source-details">
+                        Galuszka, P. e Legiedz, T. (2024). Financialization of music: song management firms and fractionalized copyright - Information, Communication & Society
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Constructing%20accounting%20in%20the%20mirror%20of%20the%20popular%20music.pdf" class="source-title" download>Constructing Accounting in Popular Music</a>
-    <div class="source-details">
-      Jacobs, K. e Evans, E. (2012). Constructing accounting in the mirror of popular music - Accounting, Auditing & Accountability Journal
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Constructing%20accounting%20in%20the%20mirror%20of%20the%20popular%20music.pdf" class="source-title" download>Constructing Accounting in Popular Music</a>
+                    <div class="source-details">
+                        Jacobs, K. e Evans, E. (2012). Constructing accounting in the mirror of popular music - Accounting, Auditing & Accountability Journal
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Valuation%20of%20Music%20Catalogs.pdf" class="source-title" download>Valuation of Music Catalogs</a>
-    <div class="source-details">
-      Kosyuk I. e Stoikov, S. (2022). Valuation of Music Catalogs
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Valuation%20of%20Music%20Catalogs.pdf" class="source-title" download>Valuation of Music Catalogs</a>
+                    <div class="source-details">
+                        Kosyuk I. e Stoikov, S. (2022). Valuation of Music Catalogs
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20effect%20of%20the%20new%20revenue%20recognition%20principle%20(IFRS%2015)%20on%20financial.pdf" class="source-title" download>IFRS 15 Financial Statement Comparability</a>
-    <div class="source-details">
-      Lee, W. e Choi, S. (2024). The effect of the new revenue recognition principle (IFRS 15) on financial statement comparability: Evidence from Korea – Journal of International Accounting, Auditing and Taxation
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20effect%20of%20the%20new%20revenue%20recognition%20principle%20(IFRS%2015)%20on%20financial.pdf" class="source-title" download>IFRS 15 Financial Statement Comparability</a>
+                    <div class="source-details">
+                        Lee, W. e Choi, S. (2024). The effect of the new revenue recognition principle (IFRS 15) on financial statement comparability: Evidence from Korea – Journal of International Accounting, Auditing and Taxation
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>Inequitable Taxation of Performing Artists</a>
-    <div class="source-details">
-      Marian, O., (2023). The Inequitable Taxation of Low- and Mid-Income Performing Artists – UCLA Entertainment Law Review
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>Inequitable Taxation of Performing Artists</a>
+                    <div class="source-details">
+                        Marian, O., (2023). The Inequitable Taxation of Low- and Mid-Income Performing Artists – UCLA Entertainment Law Review
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>Artist Taxation, Social Security and VAT</a>
-    <div class="source-details">
-      Molenaar, D. (2024). Artist Taxation, Social Security and VAT – Erasmus Universiteit Rotterdam
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>Artist Taxation, Social Security and VAT</a>
+                    <div class="source-details">
+                        Molenaar, D. (2024). Artist Taxation, Social Security and VAT – Erasmus Universiteit Rotterdam
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Alternative%20payment%20models%20in%20the%20music%20streaming%20market%20A%20comparative%20approach%20based%20on%20stream-level%20data.pdf" class="source-title" download>Alternative Payment Models in Music Streaming</a>
-    <div class="source-details">
-      Moreau, F. et al., (2024). Alternative payment models in the music streaming market: A comparative approach based on stream-level data - Information Economics and Policy
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Alternative%20payment%20models%20in%20the%20music%20streaming%20market%20A%20comparative%20approach%20based%20on%20stream-level%20data.pdf" class="source-title" download>Alternative Payment Models in Music Streaming</a>
+                    <div class="source-details">
+                        Moreau, F. et al., (2024). Alternative payment models in the music streaming market: A comparative approach based on stream-level data - Information Economics and Policy
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20revenue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>Artists and Blockchain Revenue Opportunities</a>
-    <div class="source-details">
-      Park, Y. e Kim, S. (2024). Do artists perceive blockchain as a new revenue opportunity? A social representation study of the Korean music industry – Humanities & Social Sciences Communications
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20revenue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>Artists and Blockchain Revenue Opportunities</a>
+                    <div class="source-details">
+                        Park, Y. e Kim, S. (2024). Do artists perceive blockchain as a new revenue opportunity? A social representation study of the Korean music industry – Humanities & Social Sciences Communications
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Future%20of%20Music%20Copyright%20Collectives%20in%20the%20Digital.pdf" class="source-title" download>Music Copyright and Digital Streaming</a>
-    <div class="source-details">
-      Priest, E. (2021). The Future of Music Copyright Collectives in the Digital Streaming Age - Columbia Journal of Law & the Arts
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Future%20of%20Music%20Copyright%20Collectives%20in%20the%20Digital.pdf" class="source-title" download>Music Copyright and Digital Streaming</a>
+                    <div class="source-details">
+                        Priest, E. (2021). The Future of Music Copyright Collectives in the Digital Streaming Age - Columbia Journal of Law & the Arts
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20Complex%20World%20-%20Accounting%20for%20royalty%20arrangements%20-%20issues%20for%20media%20companies.pdf" class="source-title" download>Accounting for Royalty Arrangements</a>
-    <div class="source-details">
-      PwCs Media Industry Accounting Group (2012). Making Sense of a Complex World – Accounting for Royalty Arrangements – Issues for Media Companies
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20Complex%20World%20-%20Accounting%20for%20royalty%20arrangements%20-%20issues%20for%20media%20companies.pdf" class="source-title" download>Accounting for Royalty Arrangements</a>
+                    <div class="source-details">
+                        PwCs Media Industry Accounting Group (2012). Making Sense of a Complex World – Accounting for Royalty Arrangements – Issues for Media Companies
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20complex%20world%20-%20Revenue%20recognition%20-%20payments%20to%20customers%20-%20issues%20for%20media%20companies%20under%20IFRS%2015.pdf" class="source-title" download>Revenue Recognition: Payments to Customers</a>
-    <div class="source-details">
-      PwCs Media Industry Accounting Group (2017). Making sense of a complex world Revenue recognition:payments to customers - issues for media companies under IFRS 15
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20complex%20world%20-%20Revenue%20recognition%20-%20payments%20to%20customers%20-%20issues%20for%20media%20companies%20under%20IFRS%2015.pdf" class="source-title" download>Revenue Recognition: Payments to Customers</a>
+                    <div class="source-details">
+                        PwCs Media Industry Accounting Group (2017). Making sense of a complex world Revenue recognition:payments to customers - issues for media companies under IFRS 15
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Blockchain%20Technology%20A%20Paradigm%20Shift%20in%20Accounting.pdf" class="source-title" download>Blockchain Technology in Accounting</a>
-    <div class="source-details">
-      Singh, A. e Jaiswal, K. (2022). Blockchain Technology: A Paradigm Shift in Accounting - SMS Journal of Entrepreneurship & Innovation
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Blockchain%20Technology%20A%20Paradigm%20Shift%20in%20Accounting.pdf" class="source-title" download>Blockchain Technology in Accounting</a>
+                    <div class="source-details">
+                        Singh, A. e Jaiswal, K. (2022). Blockchain Technology: A Paradigm Shift in Accounting - SMS Journal of Entrepreneurship & Innovation
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/“Breaking%20up%20the%20sky”The%20characterisation%20of%20accounting%20and%20accountants%20in%20popular%20music.pdf" class="source-title" download>Characterisation of Accounting in Popular Music</a>
-    <div class="source-details">
-      Smith, D. e Jacobs, K. (2011). "Breaking up the sky" – The characterisation of accounting and accountants in popular music - Accounting, Auditing &Accountability Journal
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/“Breaking%20up%20the%20sky”The%20characterisation%20of%20accounting%20and%20accountants%20in%20popular%20music.pdf" class="source-title" download>Characterisation of Accounting in Popular Music</a>
+                    <div class="source-details">
+                        Smith, D. e Jacobs, K. (2011). "Breaking up the sky" – The characterisation of accounting and accountants in popular music - Accounting, Auditing &Accountability Journal
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/How%20Blockchain%20Technology%20Can%20Revolutionize%20the%20music%20Industry.pdf" class="source-title" download>Blockchain Revolution in Music</a>
-    <div class="source-details">
-      Taghdiri, A.(2019). How Blockchain Technology Can Revolutionize the Music Industry – Journal of Sports & Entertainment Law
-    </div>
-  </div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/How%20Blockchain%20Technology%20Can%20Revolutionize%20the%20music%20Industry.pdf" class="source-title" download>Blockchain Revolution in Music</a>
+                    <div class="source-details">
+                        Taghdiri, A.(2019). How Blockchain Technology Can Revolutionize the Music Industry – Journal of Sports & Entertainment Law
+                    </div>
+                </div>
 
-  <div class="source-item">
-    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Dealing%20with%20digital%20the%20econimic%20organisation%20of%20streamed%20music.pdf" class="source-title" download>Economic Organisation of Streamed Music</a>
-    <div class="source-details">
-      Towse, R. (2020). Dealing with digital: the economic organisation of streamed music – Media, Culture & Society
-    </div>
-  </div>
-</div>
+                <div class="source-item">
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Dealing%20with%20digital%20the%20econimic%20organisation%20of%20streamed%20music.pdf" class="source-title" download>Economic Organisation of Streamed Music</a>
+                    <div class="source-details">
+                        Towse, R. (2020). Dealing with digital: the economic organisation of streamed music – Media, Culture & Society
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="contact" class="section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <p>
+                    <a
+                        class="custom-btn"
+                        href="https://mail.google.com/mail/?view=cm&to=paulomariamonteiro43@gmail.com&su=Let's%20Talk%20Accounting%20%26%20Music&body=Hi%20Paulo%20Monteiro%2C%0A%0AI%20recently%20discovered%20your%20work%20combining%20accounting%20and%20music%2C%20and%20I%20found%20it%20inspiring.%20I'd%20love%20to%20connect%2C%20share%20thoughts%20or%20even%20collaborate%20on%20something%20in%20this%20space.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C"
+                        target="_blank"
+                    >
+                        Send an Email
+                    </a>
+                </p>
 
-<head>
-  <style>
-    .custom-btn {
-      background: linear-gradient(135deg, #00d4ff, #FFD580);
-      color: #000000;
-      padding: 1.2rem 3rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      font-family: 'Nunito Sans', sans-serif;
-    }
-
-    .custom-btn:hover {
-      opacity: 0.85;
-      transform: scale(1.02);
-    }
-
-    .contact-info p {
-      margin-bottom: 1.5rem;
-    }
-  </style>
-</head>
-
-<head>
-  <style>
-    .custom-btn {
-      background: linear-gradient(135deg, #00d4ff, #FFD580);
-      color: #ffffff; /* Texto branco */
-      padding: 1.2rem 3rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 800; /* Negrito forte */
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      font-family: 'Nunito Sans', sans-serif;
-    }
-
-    .custom-btn:hover {
-      opacity: 0.85;
-      transform: scale(1.02);
-    }
-
-    .contact-info p {
-      margin-bottom: 1.5rem;
-    }
-  </style>
-</head>
-
-<head>
-  <style>
-    .custom-btn {
-      background: linear-gradient(135deg, #00d4ff, #0088cc); /* Azul mais escuro, sem amarelo */
-      color: #ffffff; /* Texto branco */
-      padding: 1.2rem 3rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 800;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      font-family: 'Nunito Sans', sans-serif;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); /* sombra leve no texto para contraste */
-    }
-
-    .custom-btn:hover {
-      opacity: 0.85;
-      transform: scale(1.02);
-    }
-
-    .contact-info p {
-      margin-bottom: 1.5rem;
-    }
-  </style>
-</head>
-
-<head>
-  <style>
-    .custom-btn {
-      background: linear-gradient(135deg, #00d4ff, #FFD580); /* Mantido */
-      color: #ffffff; /* Texto branco */
-      padding: 1.2rem 3rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 700; /* Negrito */
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      font-family: 'Nunito Sans', sans-serif;
-    }
-
-    .custom-btn:hover {
-      opacity: 0.85;
-      transform: scale(1.02);
-    }
-
-    .contact-info p {
-      margin-bottom: 1.5rem;
-    }
-  </style>
-</head>
-
-<head>
-  <style>
-    .custom-btn {
-      background: linear-gradient(135deg, #00d4ff, #FFD580);
-      color: #ffffff;
-      padding: 1.2rem 3rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      font-family: 'Nunito Sans', sans-serif;
-    }
-
-    .custom-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.03);
-    }
-
-    .contact-info p {
-      margin-bottom: 1.5rem;
-    }
-  </style>
-</head>
-
-<body>
-  <section id="contact" class="section">
-    <h2>Contact Information</h2>
-    <div class="contact-info">
-      <p>
-        <a
-          class="custom-btn"
-          href="https://mail.google.com/mail/?view=cm&to=paulomariamonteiro43@gmail.com&su=Let's%20Talk%20Accounting%20%26%20Music&body=Hi%20Paulo%20Monteiro%2C%0A%0AI%20recently%20discovered%20your%20work%20combining%20accounting%20and%20music%2C%20and%20I%20found%20it%20inspiring.%20I'd%20love%20to%20connect%2C%20share%20thoughts%20or%20even%20collaborate%20on%20something%20in%20this%20space.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C"
-          target="_blank"
-        >
-          Send an Email
-        </a>
-      </p>
-
-      <p>
-        <a
-          class="custom-btn"
-          href="https://www.linkedin.com/in/paulo-brito-lanca/"
-          target="_blank"
-        >
-          Connect with me on LinkedIn
-        </a>
-      </p>
-    </div>
-  </section>
-</body>
-
+                <p>
+                    <a
+                        class="custom-btn"
+                        href="https://www.linkedin.com/in/paulo-brito-lanca/"
+                        target="_blank"
+                    >
+                        Connect with me on LinkedIn
+                    </a>
+                </p>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -1294,6 +1259,23 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
         // Language switching functionality
         let currentLanguage = 'pt';
         
