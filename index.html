@@ -143,6 +143,49 @@
             50% { transform: scale(1.1); opacity: 0.8; }
         }
 
+        /* Language Toggle - Now in bottom left corner */
+        .language-toggle {
+            position: fixed;
+            left: 2rem;
+            bottom: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .language-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(0, 212, 255, 0.3);
+        }
+
+        .lang-toggle-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-toggle-btn:hover, .lang-toggle-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -512,35 +555,6 @@
             font-weight: 700;
         }
 
-        /* Language Toggle */
-        .language-toggle {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .lang-toggle-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--light);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .lang-toggle-btn:hover, .lang-toggle-btn.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark);
-            border-color: transparent;
-            transform: translateY(-2px);
-        }
-
         /* Summary Content */
         .summary-content {
             display: none;
@@ -675,6 +689,7 @@
             margin-bottom: 2rem;
         }
 
+        /* Enhanced Buttons */
         .lang-btn {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--dark);
@@ -713,7 +728,7 @@
         }
 
         .lang-btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px) scale(1.03);
             box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
 
@@ -755,7 +770,7 @@
         }
 
         .download-btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px) scale(1.03);
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
         }
 
@@ -962,7 +977,7 @@
         }
 
         .custom-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.03);
             box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
 
@@ -1158,6 +1173,13 @@
                 bottom: 1.5rem;
                 right: 1.5rem;
             }
+            
+            /* Adjust language toggle for mobile */
+            .language-toggle {
+                left: 1rem;
+                bottom: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1196,6 +1218,17 @@
             
             .nav-links {
                 width: 80%;
+            }
+            
+            /* Further adjust language toggle for small screens */
+            .language-toggle {
+                left: 0.8rem;
+                bottom: 0.8rem;
+            }
+            
+            .lang-toggle-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.7rem;
             }
         }
 
@@ -1287,7 +1320,7 @@
         <nav class="container">
             <a href="#" class="logo">
                 <span class="logo-icon">◆</span>
-                <span>Literature Review & Internship Report</span>
+                <span data-pt="Revisão Literária & Relatório de Estágio" data-en="Literature Review & Internship Report">Literature Review & Internship Report</span>
             </a>
             
             <div class="menu-toggle" id="mobile-menu">
@@ -1297,10 +1330,10 @@
             </div>
             
             <ul class="nav-links" id="nav-links">
-                <li><a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a></li>
-                <li><a href="#downloads"><i class="fas fa-download"></i> Downloads</a></li>
-                <li><a href="#sources"><i class="fas fa-book"></i> Sources</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#abstract"><i class="fas fa-file-alt"></i> <span data-pt="Resumo" data-en="Abstract">Abstract</span></a></li>
+                <li><a href="#downloads"><i class="fas fa-download"></i> <span data-pt="Downloads" data-en="Downloads">Downloads</span></a></li>
+                <li><a href="#sources"><i class="fas fa-book"></i> <span data-pt="Fontes" data-en="Sources">Sources</span></a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> <span data-pt="Contato" data-en="Contact">Contact</span></a></li>
             </ul>
         </nav>
     </header>
@@ -1309,17 +1342,23 @@
         <div class="container">
             <div class="hero-content">
                 <div class="welcome-message">
-                    <i class="fas fa-star"></i> So glad you're here — welcome! <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i> <span data-pt="Um gosto ter lhe cá — seja bem-vindo/a!" data-en="So glad you're here — welcome!">So glad you're here — welcome!</span> <i class="fas fa-star"></i>
                 </div>
-                <h1>The Relevance of <span class="accounting">Accounting</span> in the <span class="music-sector">Music Sector</span></h1>
-                <p>An advanced investigation into accounting challenges in revenue recognition, intangible assets and royalty distribution in the era of AI-powered music streaming platforms.</p>
+                <h1 data-pt="A Relevância da <span class='accounting'>Contabilidade</span> para o <span class='music-sector'>Setor Musical</span>" 
+                    data-en="The Relevance of <span class='accounting'>Accounting</span> in the <span class='music-sector'>Music Sector</span>">
+                    The Relevance of <span class="accounting">Accounting</span> in the <span class="music-sector">Music Sector</span>
+                </h1>
+                <p data-pt="O impacto disruptivo do streaming na contabilidade: O redefinir de paradigmas no reconhecimento de receitas, na valorização de ativos intangíveis e na gestão de direitos de autor na era digital."
+                   data-en="The disruptive impact of streaming on accounting: redefining paradigms in revenue recognition, intangible asset valuation and copyright management in the digital era.">
+                    An advanced investigation into accounting challenges in revenue recognition, intangible assets and royalty distribution in the era of AI-powered music streaming platforms.
+                </p>
                 
                 <div class="author-info">
                     <a href="https://www.linkedin.com/in/paulo-brito-lanca/" target="_blank"
                        class="author-card author"
                        style="text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
                         <div class="author-photo placeholder"><i class="fas fa-user"></i></div>
-                        <h3>Author</h3>
+                        <h3 data-pt="Autor" data-en="Author">Author</h3>
                         <p>Paulo Monteiro</p>
                     </a>
                     
@@ -1327,14 +1366,14 @@
                        class="author-card institution"
                        style="text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
                         <div class="author-photo placeholder"><i class="fas fa-university"></i></div>
-                        <h3>Institution</h3>
-                        <p>University of Minho</p>
+                        <h3 data-pt="Instituição" data-en="Institution">Institution</h3>
+                        <p data-pt="Universidade do Minho" data-en="University of Minho">University of Minho</p>
                     </a>
                     
                     <div class="author-card date">
                         <div class="author-photo placeholder"><i class="fas fa-calendar-alt"></i></div>
-                        <h3>Date</h3>
-                        <p>June 2025</p>
+                        <h3 data-pt="Data" data-en="Date">Date</h3>
+                        <p data-pt="Junho 2025" data-en="June 2025">June 2025</p>
                     </div>
                 </div>
             </div>
@@ -1343,88 +1382,134 @@
 
     <main class="container">
         <section id="abstract" class="section">
-            <h2>Research Summary and Internship Overview</h2>
+            <h2 data-pt="Resumo da Revisão e Relatório de Estágio" data-en="Research Summary and Internship Overview">Research Summary and Internship Overview</h2>
             <div class="abstract">
-                <p><strong>Objective:</strong> To investigate the relevance of accounting in the digital music sector, focusing on challenges related to revenue recognition, intangible assets and royalty distribution. Also describe the practical activities carried out in the curricular internship at Bright Assets.</p>
+                <p><strong data-pt="Objetivo:" data-en="Objective:">Objective:</strong> 
+                    <span data-pt="Investigar a relevância da contabilidade no setor de música digital, com foco nos desafios relacionados com o reconhecimento de receitas, ativos intangíveis e distribuição de royalties. Posteriormente, descrever as atividades práticas realizadas durante o estágio curricular na empresa Bright Assets."
+                           data-en="To investigate the relevance of accounting in the digital music sector, focusing on challenges related to revenue recognition, intangible assets and royalty distribution. Also describe the practical activities carried out in the curricular internship at Bright Assets.">
+                        To investigate the relevance of accounting in the digital music sector, focusing on challenges related to revenue recognition, intangible assets and royalty distribution. Also describe the practical activities carried out in the curricular internship at Bright Assets.
+                    </span>
+                </p>
                 
-                <p><strong>Methodology:</strong> Bibliographic review of articles, standards (such as IFRS 15), tax legislation and emerging technologies (e.g. blockchain); and practical description of internship activities.</p>
+                <p><strong data-pt="Metodologia:" data-en="Methodology:">Methodology:</strong> 
+                    <span data-pt="Revisão bibliográfica de artigos, normas (como a IFRS 15), legislação tributária e tecnologias emergentes (como blockchain); e descrição prática das atividades realizadas durante o estágio."
+                           data-en="Bibliographic review of articles, standards (such as IFRS 15), tax legislation and emerging technologies (e.g. blockchain); and practical description of internship activities.">
+                        Bibliographic review of articles, standards (such as IFRS 15), tax legislation and emerging technologies (e.g. blockchain); and practical description of internship activities.
+                    </span>
+                </p>
                 
-                <p><strong>Results:</strong> The digitization of the music industry has introduced new accounting complexities, especially in revenue recognition and rights management. The user-centric royalty distribution model proved more equitable for less popular artists compared to the pro-rata model. The application of IFRS 15 contributed to greater comparability of financial statements. Although blockchain has potential to improve copyright management, it still faces standardization challenges. The activities developed in the internship allowed consolidating practical skills in accounting, taxation and internal control.</p>
+                <p><strong data-pt="Resultados:" data-en="Results:">Results:</strong> 
+                    <span data-pt="A digitalização da indústria musical introduziu novas complexidades contabilísticas, nomeadamente no reconhecimento de rendimentos e na gestão de direitos. O modelo de distribuição de royalties centrado no utilizador (User-centric) revelou-se mais equitativo para artistas menos populares, em comparação com o modelo pró-rata. A aplicação da norma IFRS 15 contribuiu para uma maior comparabilidade das demonstrações financeiras. Apesar do potencial do blockchain para melhorar a gestão dos direitos de autor, subsistem desafios relacionados com a sua padronização. As atividades desenvolvidas durante o estágio permitiram consolidar competências práticas nas áreas da contabilidade, fiscalidade e controlo interno."
+                           data-en="The digitization of the music industry has introduced new accounting complexities, especially in revenue recognition and rights management. The user-centric royalty distribution model proved more equitable for less popular artists compared to the pro-rata model. The application of IFRS 15 contributed to greater comparability of financial statements. Although blockchain has potential to improve copyright management, it still faces standardization challenges. The activities developed in the internship allowed consolidating practical skills in accounting, taxation and internal control.">
+                        The digitization of the music industry has introduced new accounting complexities, especially in revenue recognition and rights management. The user-centric royalty distribution model proved more equitable for less popular artists compared to the pro-rata model. The application of IFRS 15 contributed to greater comparability of financial statements. Although blockchain has potential to improve copyright management, it still faces standardization challenges. The activities developed in the internship allowed consolidating practical skills in accounting, taxation and internal control.
+                    </span>
+                </p>
                 
-                <p><strong>Conclusions:</strong> Accounting is crucial for the sustainability of the digital music sector, promoting transparency and technological adaptation. The practical experience reinforced the importance of technical rigor, professional ethics and innovation to face the challenges of a constantly evolving industry.</p>
+                <p><strong data-pt="Conclusões:" data-en="Conclusions:">Conclusions:</strong> 
+                    <span data-pt="A contabilidade assume um papel fundamental na sustentabilidade do setor da música digital, promovendo a transparência e a adaptação tecnológica. A experiência prática reforçou a importância do rigor técnico, da ética profissional e da capacidade de inovação para enfrentar os desafios de uma indústria em constante evolução."
+                           data-en="Accounting is crucial for the sustainability of the digital music sector, promoting transparency and technological adaptation. The practical experience reinforced the importance of technical rigor, professional ethics and innovation to face the challenges of a constantly evolving industry.">
+                        Accounting is crucial for the sustainability of the digital music sector, promoting transparency and technological adaptation. The practical experience reinforced the importance of technical rigor, professional ethics and innovation to face the challenges of a constantly evolving industry.
+                    </span>
+                </p>
                 
-                <p><strong>Keywords:</strong> Accounting · Music sector · Streaming · IFRS 15 · Blockchain · Royalties · Taxation · Curricular internship</p>
+                <p><strong data-pt="Palavras-chave:" data-en="Keywords:">Keywords:</strong> 
+                    <span data-pt="Contabilidade · Setor musical · Streaming · IFRS 15 · Blockchain · Royalties · Tributação · Estágio curricular"
+                           data-en="Accounting · Music sector · Streaming · IFRS 15 · Blockchain · Royalties · Taxation · Curricular internship">
+                        Accounting · Music sector · Streaming · IFRS 15 · Blockchain · Royalties · Taxation · Curricular internship
+                    </span>
+                </p>
             </div>
 
             <!-- New Download Section for Research Summary -->
             <div class="abstract-download">
-                <h3>Download Research Summary</h3>
-                <p>Access the concise summary highlighting key insights, methodology, and main conclusions — available in your preferred language.</p>
+                <h3 data-pt="Baixar o resumo do meu trabalho" data-en="Download Research Summary">Download Research Summary</h3>
+                <p data-pt="Acesse o resumo conciso que destaca insights-chave, metodologia e principais conclusões — disponível no seu idioma preferido."
+                   data-en="Access the concise summary highlighting key insights, methodology, and main conclusions — available in your preferred language.">
+                    Access the concise summary highlighting key insights, methodology, and main conclusions — available in your preferred language.
+                </p>
                 <div class="language-selector">
                     <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-summary-portuguese.pdf')">
-                        <span><i class="fas fa-file-pdf"></i> Download Portuguese</span>
+                        <span><i class="fas fa-file-pdf"></i> <span data-pt="Baixar em Português" data-en="Download Portuguese">Download Portuguese</span></span>
                     </a>
                     <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-summary-english.pdf')">
-                        <span><i class="fas fa-file-pdf"></i> Download English</span>
+                        <span><i class="fas fa-file-pdf"></i> <span data-pt="Baixar em Inglês" data-en="Download English">Download English</span></span>
                     </a>
                 </div>
             </div>
         </section>
 
         <section id="downloads" class="section">
-            <h2>Available Downloads</h2>
+            <h2 data-pt="Downloads Disponíveis" data-en="Available Downloads">Available Downloads</h2>
             <div class="downloads-intro">
-                <p>Access all research materials, presentations, and supplementary resources related to this academic work on accounting in the digital music sector.</p>
+                <p data-pt="Acesse todos os materiais de pesquisa, apresentações e recursos complementares relacionados a este trabalho académico sobre a contabilidade no setor musical digital."
+                   data-en="Access all research materials, presentations, and supplementary resources related to this academic work on accounting in the digital music sector.">
+                    Access all research materials, presentations, and supplementary resources related to this academic work on accounting in the digital music sector.
+                </p>
             </div>
             <div class="downloads-grid">
                 <div class="download-card">
                     <div class="download-icon"><i class="fas fa-file-powerpoint"></i></div>
-                    <h3>Presentation Slides</h3>
-                    <p>Complete PowerPoint presentation of the research work with visual analysis and key findings.</p>
+                    <h3 data-pt="Slides de Apresentação" data-en="Presentation Slides">Presentation Slides</h3>
+                    <p data-pt="Apresentação em formato PowerPoint do trabalho de pesquisa com destaque para a análise visual e principais conclusões."
+                       data-en="Complete PowerPoint presentation of the research work with visual analysis and key findings.">
+                        Complete PowerPoint presentation of the research work with visual analysis and key findings.
+                    </p>
                     <div class="language-selector">
                         <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-portuguese.pptx')">
-                            <span><i class="fas fa-language"></i> Portuguese</span>
+                            <span><i class="fas fa-language"></i> <span data-pt="Português" data-en="Portuguese">Portuguese</span></span>
                         </a>
                         <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-english.pptx')">
-                            <span><i class="fas fa-language"></i> English</span>
+                            <span><i class="fas fa-language"></i> <span data-pt="Inglês" data-en="English">English</span></span>
                         </a>
                     </div>
                 </div>
 
                 <div class="download-card">
                     <div class="download-icon"><i class="fas fa-file-alt"></i></div>
-                    <h3>Full Internship Report and Literature Review</h3>
-                    <p>Complete research report, comprising the methodology, detailed findings, and final conclusions.</p>
+                    <h3 data-pt="Relatório Completo de Estágio e Revisão Literária" data-en="Full Internship Report and Literature Review">Full Internship Report and Literature Review</h3>
+                    <p data-pt="Relatório completo, com a metodologia integralmente descrita, resultados minuciosos e conclusões finais fundamentadas."
+                       data-en="Complete research report, comprising the methodology, detailed findings, and final conclusions.">
+                        Complete research report, comprising the methodology, detailed findings, and final conclusions.
+                    </p>
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revis%C3%A3o%20Liter%C3%A1ria%20%2B%20Relat%C3%B3rio%20De%20Est%C3%A1gio%20-%20Paulo%20Monteiro%20-%20A%20Relev%C3%A2ncia%20da%20Contabilidade%20para%20o%20Setor%20Musical%20-%20Vers%C3%A3o%20Final.pdf" 
                        class="download-btn" download>
-                        <span><i class="fas fa-download"></i> Download Abstract (Portuguese)</span>
+                        <span><i class="fas fa-download"></i> <span data-pt="Baixar (Apenas em Português)" data-en="Download (Only in Portuguese)">Download Abstract (Portuguese)</span></span>
                     </a>
                 </div>
 
                 <div class="download-card">
                     <div class="download-icon"><i class="fas fa-images"></i></div>
-                    <h3>Research Images</h3>
-                    <p>Collection of 3D visual elements used in the PowerPoint presentation. All images are licensed under Creative Commons Attribution.</p>
+                    <h3 data-pt="Imagens da Pesquisa" data-en="Research Images">Research Images</h3>
+                    <p data-pt="Coleção de elementos visuais 3D usados na apresentação PowerPoint. Todas as imagens estão licenciadas sob Creative Commons Attribution."
+                       data-en="Collection of 3D visual elements used in the PowerPoint presentation. All images are licensed under Creative Commons Attribution.">
+                        Collection of 3D visual elements used in the PowerPoint presentation. All images are licensed under Creative Commons Attribution.
+                    </p>
                     <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-images.zip')">
-                        <span><i class="fas fa-download"></i> Download All Images (ZIP)</span>
+                        <span><i class="fas fa-download"></i> <span data-pt="Baixar todas as Imagens (ZIP)" data-en="Download All Images (ZIP)">Download All Images (ZIP)</span></span>
                     </a>
                 </div>
             </div>
         </section>
                     
         <section id="sources" class="section">
-            <h2>Bibliographic References</h2>
+            <h2 data-pt="Referências Bibliográficas" data-en="Bibliographic References">Bibliographic References</h2>
             <p style="text-align: center; font-size: 1.1rem; color: var(--gray); margin-bottom: 1rem;">
-                Main bibliographic sources used in this research — available for download by clicking each title.
+                <span data-pt="Principais fontes bibliográficas utilizadas nesta pesquisa — disponíveis para download à distância de um clique."
+                      data-en="Main bibliographic sources used in this research — available for download by clicking each title.">
+                    Main bibliographic sources used in this research — available for download by clicking each title.
+                </span>
             </p>
             <p style="text-align: center; font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem;">
-                If any author requests the removal of their document, please contact me and I will address the matter promptly.
+                <span data-pt="Se algum autor solicitar a remoção de seu documento, entre em contato comigo e tratarei do assunto prontamente."
+                      data-en="If any author requests the removal of their document, please contact me and I will address the matter promptly.">
+                    If any author requests the removal of their document, please contact me and I will address the matter promptly.
+                </span>
             </p>
 
             <div class="sources-list">
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue-Sharing%20Allocation%20Strategies%20for%20Two-Sided%20Media%20Platforms%20Pro-Rata%20versus%20User-Centric.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Revenue-Sharing Allocation Strategies
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Estratégias de Distribuição de Receita" data-en="Revenue-Sharing Allocation Strategies">Revenue-Sharing Allocation Strategies</span>
                     </a>
                     <div class="source-details">
                         Alaei, S. et al. (2020). Revenue-Sharing Allocation Strategies for Two-Sided Media Platforms: Pro-Rata versus User-Centric
@@ -1433,7 +1518,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Digital%20transformation%2C%20blockchain%2C%20and%20the%20music%20industry%20A%20review%20from%20the%20perspective%20of%20performers%20collective%20management%20organizations.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Digital Transformation and Blockchain
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Transformação Digital e Blockchain" data-en="Digital Transformation and Blockchain">Digital Transformation and Blockchain</span>
                     </a>
                     <div class="source-details">
                         Arenal, A. et al., (2024). Digital transformation, blockchain, and the music industry: A review from the perspective of performers' collective management organizations - Telecommunications Policy
@@ -1442,7 +1527,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Accounting%20and%20music%20The%20role%20of%20Giuseppe%20Verdi%20in%20shaping%20the%20nineteenth-century%20culture%20industry.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Accounting and Music History
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Contabilidade e História da Música" data-en="Accounting and Music History">Accounting and Music History</span>
                     </a>
                     <div class="source-details">
                         Balluchi, F. et al., (2021). Accounting and music: The role of Giuseppe Verdi in shaping the nineteenth-century culture industry – Accounting History
@@ -1451,7 +1536,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue%20sharing%20at%20music%20streaming%20platforms.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Revenue Sharing at Streaming Platforms
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Distribuição da Receita em Plataformas de Streaming" data-en="Revenue Sharing at Streaming Platforms">Revenue Sharing at Streaming Platforms</span>
                     </a>
                     <div class="source-details">
                         Bergantiños, G. e Moreno-Ternero, J. (2023). Revenue sharing at music streaming platforms
@@ -1460,7 +1545,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Taxes%20and%20the%20working%20musician.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Taxes and the Working Musician
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Impostos no mundo do Músico Profissional" data-en="Taxes and the Working Musician">Taxes and the Working Musician</span>
                     </a>
                     <div class="source-details">
                         Friedman, A. (n.d.). Taxes and the working musician - Dollars & Sense
@@ -1469,7 +1554,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Financialization%20of%20music%20song%20management%20firms%20and%20fractionalized%20copyright.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Financialization of Music
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Financeirização da Música" data-en="Financialization of Music">Financialization of Music</span>
                     </a>
                     <div class="source-details">
                         Galuszka, P. e Legiedz, T. (2024). Financialization of music: song management firms and fractionalized copyright - Information, Communication & Society
@@ -1478,7 +1563,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Constructing%20accounting%20in%20the%20mirror%20of%20the%20popular%20music.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Constructing Accounting in Popular Music
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Construindo a ideia da Contabilidade na Música Popular" data-en="Constructing Accounting in Popular Music">Constructing Accounting in Popular Music</span>
                     </a>
                     <div class="source-details">
                         Jacobs, K. e Evans, E. (2012). Constructing accounting in the mirror of popular music - Accounting, Auditing & Accountability Journal
@@ -1487,7 +1572,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Valuation%20of%20Music%20Catalogs.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Valuation of Music Catalogs
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Avaliação de Catálogos Musicais" data-en="Valuation of Music Catalogs">Valuation of Music Catalogs</span>
                     </a>
                     <div class="source-details">
                         Kosyuk I. e Stoikov, S. (2022). Valuation of Music Catalogs
@@ -1496,7 +1581,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20effect%20of%20the%20new%20revenue%20recognition%20principle%20(IFRS%2015)%20on%20financial.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> IFRS 15 Financial Statement Comparability
+                        <i class="fas fa-file-pdf"></i> <span data-pt="IFRS 15 e a Comparabilidade de Demonstrações Financeiras" data-en="IFRS 15 Financial Statement Comparability">IFRS 15 Financial Statement Comparability</span>
                     </a>
                     <div class="source-details">
                         Lee, W. e Choi, S. (2024). The effect of the new revenue recognition principle (IFRS 15) on financial statement comparability: Evidence from Korea – Journal of International Accounting, Auditing and Taxation
@@ -1505,7 +1590,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Inequitable Taxation of Performing Artists
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Tributação desigual entre Artistas" data-en="Inequitable Taxation of Performing Artists">Inequitable Taxation of Performing Artists</span>
                     </a>
                     <div class="source-details">
                         Marian, O., (2023). The Inequitable Taxation of Low- and Mid-Income Performing Artists – UCLA Entertainment Law Review
@@ -1514,7 +1599,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Artist Taxation, Social Security and VAT
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Tributação de Artistas, Segurança Social e VAT (IVA)" data-en="Artist Taxation, Social Security and VAT">Artist Taxation, Social Security and VAT</span>
                     </a>
                     <div class="source-details">
                         Molenaar, D. (2024). Artist Taxation, Social Security and VAT – Erasmus Universiteit Rotterdam
@@ -1523,7 +1608,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Alternative%20payment%20models%20in%20the%20music%20streaming%20market%20A%20comparative%20approach%20based%20on%20stream-level%20data.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Alternative Payment Models in Music Streaming
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Modelos Alternativos de Pagamento no Streaming Musical" data-en="Alternative Payment Models in Music Streaming">Alternative Payment Models in Music Streaming</span>
                     </a>
                     <div class="source-details">
                         Moreau, F. et al., (2024). Alternative payment models in the music streaming market: A comparative approach based on stream-level data - Information Economics and Policy
@@ -1532,7 +1617,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20revenue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Artists and Blockchain Revenue Opportunities
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Artistas e as Oportunidades de Receita com a Blockchain" data-en="Artists and Blockchain Revenue Opportunities">Artists and Blockchain Revenue Opportunities</span>
                     </a>
                     <div class="source-details">
                         Park, Y. e Kim, S. (2024). Do artists perceive blockchain as a new revenue opportunity? A social representation study of the Korean music industry – Humanities & Social Sciences Communications
@@ -1541,7 +1626,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Future%20of%20Music%20Copyright%20Collectives%20in%20the%20Digital.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Music Copyright and Digital Streaming
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Direitos de Autor e Streaming Digital" data-en="Music Copyright and Digital Streaming">Music Copyright and Digital Streaming</span>
                     </a>
                     <div class="source-details">
                         Priest, E. (2021). The Future of Music Copyright Collectives in the Digital Streaming Age - Columbia Journal of Law & the Arts
@@ -1550,7 +1635,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20Complex%20World%20-%20Accounting%20for%20royalty%20arrangements%20-%20issues%20for%20media%20companies.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Accounting for Royalty Arrangements
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Contabilidade para Contratos de Royalties" data-en="Accounting for Royalty Arrangements">Accounting for Royalty Arrangements</span>
                     </a>
                     <div class="source-details">
                         PwCs Media Industry Accounting Group (2012). Making Sense of a Complex World – Accounting for Royalty Arrangements – Issues for Media Companies
@@ -1559,7 +1644,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20complex%20world%20-%20Revenue%20recognition%20-%20payments%20to%20customers%20-%20issues%20for%20media%20companies%20under%20IFRS%2015.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Revenue Recognition: Payments to Customers
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Reconhecimento de Receita: Pagamentos a Clientes" data-en="Revenue Recognition: Payments to Customers">Revenue Recognition: Payments to Customers</span>
                     </a>
                     <div class="source-details">
                         PwCs Media Industry Accounting Group (2017). Making sense of a complex world Revenue recognition:payments to customers - issues for media companies under IFRS 15
@@ -1568,7 +1653,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Blockchain%20Technology%20A%20Paradigm%20Shift%20in%20Accounting.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Blockchain Technology in Accounting
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Tecnologia Blockchain na Contabilidade" data-en="Blockchain Technology in Accounting">Blockchain Technology in Accounting</span>
                     </a>
                     <div class="source-details">
                         Singh, A. e Jaiswal, K. (2022). Blockchain Technology: A Paradigm Shift in Accounting - SMS Journal of Entrepreneurship & Innovation
@@ -1577,7 +1662,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/“Breaking%20up%20the%20sky”The%20characterisation%20of%20accounting%20and%20accountants%20in%20popular%20music.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Characterisation of Accounting in Popular Music
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Caracterização da Contabilidade na Música Popular" data-en="Characterisation of Accounting in Popular Music">Characterisation of Accounting in Popular Music</span>
                     </a>
                     <div class="source-details">
                         Smith, D. e Jacobs, K. (2011). "Breaking up the sky" – The characterisation of accounting and accountants in popular music - Accounting, Auditing &Accountability Journal
@@ -1586,7 +1671,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/How%20Blockchain%20Technology%20Can%20Revolutionize%20the%20music%20Industry.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Blockchain Revolution in Music
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Revolução da Blockchain na Música" data-en="Blockchain Revolution in Music">Blockchain Revolution in Music</span>
                     </a>
                     <div class="source-details">
                         Taghdiri, A.(2019). How Blockchain Technology Can Revolutionize the Music Industry – Journal of Sports & Entertainment Law
@@ -1595,7 +1680,7 @@
 
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Dealing%20with%20digital%20the%20econimic%20organisation%20of%20streamed%20music.pdf" class="source-title" download>
-                        <i class="fas fa-file-pdf"></i> Economic Organisation of Streamed Music
+                        <i class="fas fa-file-pdf"></i> <span data-pt="Organização Económica da Música no Streaming" data-en="Economic Organisation of Streamed Music">Economic Organisation of Streamed Music</span>
                     </a>
                     <div class="source-details">
                         Towse, R. (2020). Dealing with digital: the economic organisation of streamed music – Media, Culture & Society
@@ -1605,25 +1690,17 @@
         </section>
 
         <section id="contact" class="section">
-            <h2>Contact Information</h2>
+            <h2 data-pt="Informações de Contato" data-en="Contact Information">Contact Information</h2>
             <div class="contact-info">
                 <p>
-                    <a
-                        class="custom-btn"
-                        href="https://mail.google.com/mail/?view=cm&to=paulomariamonteiro43@gmail.com&su=Let's%20Talk%20Accounting%20%26%20Music&body=Hi%20Paulo%20Monteiro%2C%0A%0AI%20recently%20discovered%20your%20work%20combining%20accounting%20and%20music%2C%20and%20I%20found%20it%20inspiring.%20I'd%20love%20to%20connect%2C%20share%20thoughts%20or%20even%20collaborate%20on%20something%20in%20this%20space.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C"
-                        target="_blank"
-                    >
-                        <span><i class="fas fa-envelope"></i> Send an Email</span>
+                    <a class="custom-btn" href="javascript:void(0);" onclick="openEmail()">
+                        <span><i class="fas fa-envelope"></i> <span data-pt="Enviar Email" data-en="Send an Email">Send an Email</span></span>
                     </a>
                 </p>
 
                 <p>
-                    <a
-                        class="custom-btn"
-                        href="https://www.linkedin.com/in/paulo-brito-lanca/"
-                        target="_blank"
-                    >
-                        <span><i class="fab fa-linkedin"></i> Connect on LinkedIn</span>
+                    <a class="custom-btn" href="https://www.linkedin.com/in/paulo-brito-lanca/" target="_blank">
+                        <span><i class="fab fa-linkedin"></i> <span data-pt="Conecte-se comigo no LinkedIn" data-en="Connect on LinkedIn">Connect on LinkedIn</span></span>
                     </a>
                 </p>
 
@@ -1639,15 +1716,21 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p data-pt="© 2025 - Paulo Monteiro - Universidade do Minho. All rights reserved." data-en="© 2025 - Paulo Monteiro - University of Minho. All rights reserved.">
-                    © 2025 - Paulo Monteiro - Universidade do Minho. All rights reserved.
+                <p data-pt="© 2025 - Paulo Monteiro - Universidade do Minho. Todos os direitos reservados." data-en="© 2025 - Paulo Monteiro - University of Minho. All rights reserved.">
+                    © 2025 - Paulo Monteiro - University of Minho. All rights reserved.
                 </p>
-                <p data-pt="Developed with dedication to the sharing of scientific knowledge." data-en="Developed with dedication for sharing scientific knowledge.">
-                    Developed with dedication to the sharing of scientific knowledge.
+                <p data-pt="Desenvolvido com bastante dedicação para partilhar conhecimento científico e académico." data-en="Developed with dedication for sharing scientific knowledge.">
+                    Developed with dedication for sharing scientific knowledge.
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Language toggle now positioned in bottom left corner -->
+    <div class="language-toggle">
+        <button class="lang-toggle-btn active" id="btn-pt" onclick="changeLanguage('pt')">PT</button>
+        <button class="lang-toggle-btn" id="btn-en" onclick="changeLanguage('en')">EN</button>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -1709,6 +1792,13 @@
                     }
                 }
             });
+            
+            // Update document title
+            if (lang === 'pt') {
+                document.title = "A Relevância da Contabilidade para o Setor Musical | Pesquisa de Paulo Monteiro";
+            } else {
+                document.title = "The Relevance of Accounting in the Music Sector | Research by Paulo Monteiro";
+            }
         }
 
         // Download function simulation
@@ -1726,6 +1816,19 @@
             
             const msg = messages[currentLanguage] || messages.pt;
             alert(`${msg.title}\n\n${msg.note}`);
+        }
+
+        // New Email Function
+        function openEmail() {
+            const subject = currentLanguage === 'pt' 
+                ? "Vamos conversar sobre a Contabilidade e a Música" 
+                : "Let's Talk Accounting & Music";
+            
+            const body = currentLanguage === 'pt'
+                ? "Olá Paulo Monteiro,%0A%0AEncontrei o teu trabalho sobre a contabilidade no setor musical e achei interessante. Gostaria de conversar, compartilhar ideias ou até mesmo colaborar consigo.%0A%0AAtenciosamente,"
+                : "Hi Paulo Monteiro,%0A%0AI recently discovered your work combining accounting and music, and I found it inspiring. I'd love to connect, share thoughts or even collaborate on something in this space.%0A%0ABest regards,";
+            
+            window.open(`https://mail.google.com/mail/?view=cm&to=paulomariamonteiro43@gmail.com&su=${subject}&body=${body}`, '_blank');
         }
 
         // Smooth navigation
