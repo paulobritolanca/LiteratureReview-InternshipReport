@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Relevance of Accounting in the Music Sector</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>The Relevance of Accounting in the Music Sector | Research by Paulo Monteiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #FFD580;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --light: #ffffff;
+            --lighter: #f8f9fa;
+            --gray: #cccccc;
+            --dark-gray: #333333;
+            --accent: #7b2cbf;
+            --success: #38b000;
+            --warning: #ff9e00;
+            --danger: #d00000;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+            --max-width: 1400px;
+            --header-height: 80px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,11 +41,18 @@
 
         body {
             font-family: 'Nunito Sans', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: var(--dark);
+            color: var(--light);
             min-height: 100vh;
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         /* Animated Background */
@@ -28,11 +62,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 213, 128, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 198, 255, 0.2) 0%, transparent 50%);
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 213, 128, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 198, 255, 0.1) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.5;
         }
 
         @keyframes float {
@@ -41,65 +89,75 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
         /* Header */
         header {
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-md);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            width: 100%;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 900;
-            color: #00d4ff;
+            color: var(--primary);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            transition: var(--transition);
         }
 
-        .logo::before {
-            content: "◆";
-            font-size: 1rem;
+        .logo:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            font-size: 1.2rem;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: var(--light);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 400;
+            transition: var(--transition);
+            font-weight: 600;
             position: relative;
             padding: 0.5rem 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
         .nav-links a::after {
@@ -109,8 +167,8 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #00d4ff, #FFD580);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.4s ease;
         }
 
         .nav-links a:hover::after {
@@ -118,7 +176,7 @@
         }
 
         .nav-links a:hover {
-            color: #00d4ff;
+            color: var(--primary);
         }
 
         /* Mobile Menu */
@@ -130,28 +188,43 @@
             height: 21px;
             cursor: pointer;
             z-index: 1001;
+            position: relative;
         }
 
         .menu-toggle span {
             display: block;
             height: 3px;
             width: 100%;
-            background: #00d4ff;
+            background: var(--primary);
             border-radius: 3px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 80px;
-            padding: 4rem 0;
+            margin-top: var(--header-height);
+            padding: 6rem 0;
             text-align: center;
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 213, 128, 0.05));
-            border-radius: 20px;
-            margin: 100px 15px 3rem;
+            border-radius: var(--border-radius-xl);
+            margin: calc(var(--header-height) + 2rem) 2rem 4rem;
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-xl);
             position: relative;
             overflow: hidden;
         }
@@ -175,61 +248,78 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 0 15px;
+            padding: 0 1rem;
+        }
+
+        .welcome-message {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-block;
+            background: rgba(255, 213, 128, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 213, 128, 0.2);
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-            font-weight: 900;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--light);
             line-height: 1.1;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: -0.5px;
         }
 
         .hero h1 .accounting {
-            color: #00d4ff;
-            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #0099cc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .accounting::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
         }
 
         .hero h1 .music-sector {
-            color: #FFD580;
-            background: linear-gradient(135deg, #FFD580, #ffea99);
+            color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), #ffea99);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #cccccc;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--gray);
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
-            line-height: 1.6;
-        }
-
-        /* Welcome message */
-        .welcome-message {
-            font-size: 1rem;
-            color: #FFD580;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            line-height: 1.8;
         }
 
         /* Author Info with Photos */
         .author-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
@@ -237,12 +327,13 @@
 
         .author-card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -264,7 +355,7 @@
         }
 
         .author-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
             border-color: rgba(0, 212, 255, 0.3);
         }
@@ -297,41 +388,47 @@
         }
 
         .author-photo {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             position: relative;
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.2);
             z-index: 2;
+            transition: var(--transition);
+        }
+
+        .author-card:hover .author-photo {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.3);
         }
 
         .author-photo img {
-            width: 96px;
-            height: 96px;
+            width: 114px;
+            height: 114px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .author-photo.placeholder {
-            font-size: 2.5rem;
-            color: #ffffff;
+            font-size: 3rem;
+            color: var(--light);
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
         }
 
         .author-card h3 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: #00d4ff;
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
@@ -339,9 +436,9 @@
         }
 
         .author-card p {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--light);
             position: relative;
             z-index: 2;
         }
@@ -353,14 +450,16 @@
 
         .section {
             background: rgba(0, 0, 0, 0.4);
-            margin: 2rem 15px;
-            padding: 2.5rem;
-            border-radius: 20px;
+            margin: 3rem 2rem;
+            padding: 4rem;
+            border-radius: var(--border-radius-xl);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .section::before {
@@ -370,7 +469,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #00d4ff, #FFD580, #00d4ff);
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
             background-size: 200% 100%;
             animation: gradient-slide 3s ease-in-out infinite;
         }
@@ -381,21 +480,35 @@
         }
 
         .section h2 {
-            color: #ffffff;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            color: var(--light);
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
             text-align: center;
             font-weight: 800;
-            background: linear-gradient(135deg, #00d4ff, #FFD580);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
 
         .section h3 {
-            color: #00d4ff;
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
         }
 
@@ -404,28 +517,28 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .lang-toggle-btn {
             background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            color: var(--light);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
         }
 
         .lang-toggle-btn:hover, .lang-toggle-btn.active {
-            background: linear-gradient(135deg, #00d4ff, #FFD580);
-            color: #000000;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
             border-color: transparent;
+            transform: translateY(-2px);
         }
 
         /* Summary Content */
@@ -439,58 +552,66 @@
 
         .summary-card {
             background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #00d4ff;
-            margin: 1.5rem 0;
+            padding: 3rem;
+            border-radius: var(--border-radius-lg);
+            border-left: 5px solid var(--primary);
+            margin: 2rem 0;
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .summary-card p {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
             text-align: justify;
             font-weight: 300;
-            line-height: 1.6;
-            color: #e0e0e0;
+            line-height: 1.8;
+            color: var(--gray);
         }
 
         .summary-card strong {
-            color: #FFD580;
+            color: var(--secondary);
             font-weight: 700;
         }
 
         /* Downloads Grid */
         .downloads-intro {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .downloads-intro p {
-            font-size: 1.1rem;
-            color: #cccccc;
+            font-size: 1.2rem;
+            color: var(--gray);
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.8;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .downloads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .download-card {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 213, 128, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 3rem;
+            border-radius: var(--border-radius-lg);
             text-align: center;
-            transition: all 0.4s ease;
+            transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
         }
@@ -504,7 +625,7 @@
             bottom: 0;
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 213, 128, 0.05));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: var(--transition);
         }
 
         .download-card:hover::before {
@@ -512,32 +633,38 @@
         }
 
         .download-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 212, 255, 0.3);
             border-color: rgba(0, 212, 255, 0.3);
         }
 
         .download-icon {
-            font-size: 3rem;
-            margin-bottom: 1.2rem;
-            color: #ffffff;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
             position: relative;
             z-index: 2;
+            transition: var(--transition);
+        }
+
+        .download-card:hover .download-icon {
+            transform: scale(1.1);
+            color: var(--primary);
         }
 
         .download-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: var(--light);
         }
 
         .download-card p {
-            font-size: 0.95rem;
-            color: #cccccc;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Language selector for downloads */
@@ -545,20 +672,19 @@
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .lang-btn {
-            background: linear-gradient(135deg, #00d4ff, #FFD580);
-            color: #000000;
-            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 0.8rem 2rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
             position: relative;
@@ -573,8 +699,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #FFD580, #00d4ff);
-            transition: left 0.3s ease;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transition: var(--transition);
         }
 
         .lang-btn:hover::before {
@@ -588,19 +714,19 @@
 
         .lang-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
 
         .download-btn {
-            background: linear-gradient(135deg, #00d4ff, #FFD580);
-            color: #000000;
-            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
             position: relative;
@@ -615,8 +741,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #FFD580, #00d4ff);
-            transition: left 0.3s ease;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transition: var(--transition);
         }
 
         .download-btn:hover::before {
@@ -630,182 +756,321 @@
 
         .download-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
         }
 
         /* Abstract Section */
         .abstract {
             background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #00d4ff;
-            margin: 1.5rem 0;
+            padding: 3rem;
+            border-radius: var(--border-radius-lg);
+            border-left: 5px solid var(--primary);
+            margin: 2rem 0;
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .abstract:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .abstract p {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
             text-align: justify;
             font-weight: 300;
-            line-height: 1.6;
-            color: #e0e0e0;
+            line-height: 1.8;
+            color: var(--gray);
         }
 
         .abstract strong {
-            color: #FFD580;
+            color: var(--secondary);
             font-weight: 700;
         }
 
         /* Abstract Download Section */
         .abstract-download {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 213, 128, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 3rem;
+            border-radius: var(--border-radius-lg);
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            transition: var(--transition);
+        }
+
+        .abstract-download:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .abstract-download h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: var(--light);
         }
 
         .abstract-download p {
-            font-size: 1rem;
-            color: #cccccc;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Sources Section */
         .sources-list {
             display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .source-item {
             background: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid #00d4ff;
-            transition: all 0.3s ease;
+            padding: 2.5rem;
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .source-item:hover {
             background: rgba(0, 212, 255, 0.05);
-            transform: translateX(5px);
-            border-left-color: #FFD580;
+            transform: translateX(8px);
+            border-left-color: var(--secondary);
+            box-shadow: var(--shadow-sm);
         }
 
         .source-title {
-            color: #00d4ff;
+            color: var(--primary);
             font-weight: 700;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .source-item:hover .source-title {
+            color: var(--secondary);
         }
 
         .source-details {
-            color: #cccccc;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
             font-weight: 300;
         }
 
         /* Contact Section */
         .contact-info {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             background: rgba(0, 212, 255, 0.05);
-            border-radius: 15px;
+            border-radius: var(--border-radius-xl);
             border: 1px solid rgba(0, 212, 255, 0.2);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: var(--transition);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .contact-info p {
-            margin: 1.2rem 0;
-            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
             font-weight: 300;
         }
 
         .contact-info strong {
-            color: #FFD580;
+            color: var(--secondary);
             font-weight: 700;
         }
 
         .contact-info a {
-            color: #FFD580;
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
         }
 
         .contact-info a:hover {
-            color: #00d4ff;
+            color: var(--primary);
+        }
+
+        .contact-info a:hover::after {
+            width: 100%;
         }
 
         .custom-btn {
-            background: linear-gradient(135deg, #00d4ff, #FFD580);
-            color: #000000;
-            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
             font-family: 'Nunito Sans', sans-serif;
-            margin: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .custom-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transition: var(--transition);
+        }
+
+        .custom-btn:hover::before {
+            left: 0;
+        }
+
+        .custom-btn span {
+            position: relative;
+            z-index: 2;
         }
 
         .custom-btn:hover {
-            opacity: 0.9;
-            transform: scale(1.03);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
 
         /* Footer */
         footer {
             background: rgba(0, 0, 0, 0.8);
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
+            padding: 4rem 0;
+            margin-top: 5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
 
         .footer-content {
-            color: #cccccc;
+            color: var(--gray);
             font-weight: 300;
         }
 
         .footer-content p {
-            margin: 0.8rem 0;
-            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 3rem;
+            }
+            
+            .section h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                padding: 5rem 0;
+                margin: calc(var(--header-height) + 1rem) 1.5rem 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .section {
-                padding: 2rem;
+                padding: 3rem;
+                margin: 2rem 1.5rem;
+            }
+            
+            .section h2 {
+                font-size: 2.2rem;
             }
             
             .downloads-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
 
@@ -822,11 +1087,12 @@
                 height: 100vh;
                 background: rgba(0, 0, 0, 0.95);
                 backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: 2rem;
-                transition: right 0.3s ease;
+                transition: var(--transition);
                 z-index: 1000;
             }
             
@@ -835,9 +1101,9 @@
             }
             
             .hero {
-                margin-top: 70px;
-                padding: 3rem 0;
-                margin: 80px 10px 2rem;
+                padding: 4rem 0;
+                margin: var(--header-height) 1rem 2rem;
+                border-radius: var(--border-radius-lg);
             }
             
             .hero h1 {
@@ -850,16 +1116,24 @@
             
             .author-info {
                 grid-template-columns: 1fr;
-                gap: 1.2rem;
+                gap: 1.5rem;
             }
             
             .section {
-                margin: 1.5rem 10px;
-                padding: 1.5rem;
+                padding: 2rem;
+                margin: 1.5rem 1rem;
+                border-radius: var(--border-radius-lg);
             }
             
             .section h2 {
                 font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+            
+            .section h2::after {
+                width: 60px;
+                height: 3px;
+                bottom: -8px;
             }
             
             .downloads-grid {
@@ -874,12 +1148,29 @@
             .custom-btn {
                 width: 100%;
                 text-align: center;
+                padding: 1rem 2rem;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
             .logo {
                 font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
             }
             
             .hero h1 {
@@ -895,11 +1186,16 @@
             }
             
             .download-card {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             
             .download-btn, .lang-btn {
                 padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .nav-links {
+                width: 80%;
             }
         }
 
@@ -915,26 +1211,22 @@
             }
         }
 
-        .section {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+            background: var(--dark);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #00d4ff, #FFD580);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #FFD580, #00d4ff);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
         }
 
         /* Portuguese-only indicator */
@@ -944,19 +1236,59 @@
             padding: 0.5rem 1rem;
             border-radius: 15px;
             font-size: 0.8rem;
-            color: #FFD580;
+            color: var(--secondary);
             display: inline-block;
             margin-bottom: 1rem;
             font-weight: 600;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            border-radius: var(--border-radius-sm);
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
+    <div class="bg-pattern"></div>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
     
     <header>
         <nav class="container">
-            <a href="#" class="logo">Literature Review & Internship Report</a>
+            <a href="#" class="logo">
+                <span class="logo-icon">◆</span>
+                <span>Literature Review & Internship Report</span>
+            </a>
             
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -965,11 +1297,10 @@
             </div>
             
             <ul class="nav-links" id="nav-links">
-                <li><a href="#abstract">Abstract</a></li>
-                <li><a href="#summary">Summary</a></li>
-                <li><a href="#downloads">Downloads</a></li>
-                <li><a href="#sources">Sources</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a></li>
+                <li><a href="#downloads"><i class="fas fa-download"></i> Downloads</a></li>
+                <li><a href="#sources"><i class="fas fa-book"></i> Sources</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -977,7 +1308,9 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="welcome-message">So glad you're here — welcome!</div>
+                <div class="welcome-message">
+                    <i class="fas fa-star"></i> So glad you're here — welcome! <i class="fas fa-star"></i>
+                </div>
                 <h1>The Relevance of <span class="accounting">Accounting</span> in the <span class="music-sector">Music Sector</span></h1>
                 <p>An advanced investigation into accounting challenges in revenue recognition, intangible assets and royalty distribution in the era of AI-powered music streaming platforms.</p>
                 
@@ -985,7 +1318,7 @@
                     <a href="https://www.linkedin.com/in/paulo-brito-lanca/" target="_blank"
                        class="author-card author"
                        style="text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
-                        <div class="author-photo placeholder">👤</div>
+                        <div class="author-photo placeholder"><i class="fas fa-user"></i></div>
                         <h3>Author</h3>
                         <p>Paulo Monteiro</p>
                     </a>
@@ -993,13 +1326,13 @@
                     <a href="https://www.uminho.pt/PT" target="_blank"
                        class="author-card institution"
                        style="text-decoration: none; color: inherit; display: block; cursor: pointer; outline: none;">
-                        <div class="author-photo placeholder">🏛️</div>
+                        <div class="author-photo placeholder"><i class="fas fa-university"></i></div>
                         <h3>Institution</h3>
                         <p>University of Minho</p>
                     </a>
                     
                     <div class="author-card date">
-                        <div class="author-photo placeholder">📅</div>
+                        <div class="author-photo placeholder"><i class="fas fa-calendar-alt"></i></div>
                         <h3>Date</h3>
                         <p>June 2025</p>
                     </div>
@@ -1028,8 +1361,12 @@
                 <h3>Download Research Summary</h3>
                 <p>Access the concise summary highlighting key insights, methodology, and main conclusions — available in your preferred language.</p>
                 <div class="language-selector">
-                    <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-summary-portuguese.pdf')"><span>Download Portuguese</span></a>
-                    <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-summary-english.pdf')"><span>Download English</span></a>
+                    <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-summary-portuguese.pdf')">
+                        <span><i class="fas fa-file-pdf"></i> Download Portuguese</span>
+                    </a>
+                    <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-summary-english.pdf')">
+                        <span><i class="fas fa-file-pdf"></i> Download English</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1041,47 +1378,53 @@
             </div>
             <div class="downloads-grid">
                 <div class="download-card">
-                    <div class="download-icon">📊</div>
+                    <div class="download-icon"><i class="fas fa-file-powerpoint"></i></div>
                     <h3>Presentation Slides</h3>
                     <p>Complete PowerPoint presentation of the research work with visual analysis and key findings.</p>
                     <div class="language-selector">
-                        <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-portuguese.pptx')">Portuguese</a>
-                        <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-english.pptx')">English</a>
+                        <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-portuguese.pptx')">
+                            <span><i class="fas fa-language"></i> Portuguese</span>
+                        </a>
+                        <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-english.pptx')">
+                            <span><i class="fas fa-language"></i> English</span>
+                        </a>
                     </div>
                 </div>
 
                 <div class="download-card">
-                    <div class="download-icon">📄</div>
+                    <div class="download-icon"><i class="fas fa-file-alt"></i></div>
                     <h3>Full Internship Report and Literature Review</h3>
                     <p>Complete research report, comprising the methodology, detailed findings, and final conclusions.</p>
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revis%C3%A3o%20Liter%C3%A1ria%20%2B%20Relat%C3%B3rio%20De%20Est%C3%A1gio%20-%20Paulo%20Monteiro%20-%20A%20Relev%C3%A2ncia%20da%20Contabilidade%20para%20o%20Setor%20Musical%20-%20Vers%C3%A3o%20Final.pdf" 
                        class="download-btn" download>
-                        <span>Download Abstract (Portuguese)</span>
+                        <span><i class="fas fa-download"></i> Download Abstract (Portuguese)</span>
                     </a>
                 </div>
 
                 <div class="download-card">
-                    <div class="download-icon">🖼️</div>
+                    <div class="download-icon"><i class="fas fa-images"></i></div>
                     <h3>Research Images</h3>
                     <p>Collection of 3D visual elements used in the PowerPoint presentation. All images are licensed under Creative Commons Attribution.</p>
-                    <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-images.zip')"><span>Download All Images (ZIP)</span></a>
+                    <a href="javascript:void(0)" class="download-btn" onclick="downloadFile('research-images.zip')">
+                        <span><i class="fas fa-download"></i> Download All Images (ZIP)</span>
+                    </a>
                 </div>
             </div>
         </section>
                     
         <section id="sources" class="section">
             <h2>Bibliographic References</h2>
-            <p style="text-align: center; font-size: 1rem; color: #cccccc; margin-bottom: 1rem;">
+            <p style="text-align: center; font-size: 1.1rem; color: var(--gray); margin-bottom: 1rem;">
                 Main bibliographic sources used in this research — available for download by clicking each title.
             </p>
-            <p style="text-align: center; font-size: 1rem; color: #cccccc; margin-bottom: 2rem;">
+            <p style="text-align: center; font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem;">
                 If any author requests the removal of their document, please contact me and I will address the matter promptly.
             </p>
 
             <div class="sources-list">
                 <div class="source-item">
                     <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue-Sharing%20Allocation%20Strategies%20for%20Two-Sided%20Media%20Platforms%20Pro-Rata%20versus%20User-Centric.pdf" class="source-title" download>
-                        Revenue-Sharing Allocation Strategies
+                        <i class="fas fa-file-pdf"></i> Revenue-Sharing Allocation Strategies
                     </a>
                     <div class="source-details">
                         Alaei, S. et al. (2020). Revenue-Sharing Allocation Strategies for Two-Sided Media Platforms: Pro-Rata versus User-Centric
@@ -1089,133 +1432,171 @@
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Digital%20transformation%2C%20blockchain%2C%20and%20the%20music%20industry%20A%20review%20from%20the%20perspective%20of%20performers%20collective%20management%20organizations.pdf" class="source-title" download>Digital Transformation and Blockchain</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Digital%20transformation%2C%20blockchain%2C%20and%20the%20music%20industry%20A%20review%20from%20the%20perspective%20of%20performers%20collective%20management%20organizations.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Digital Transformation and Blockchain
+                    </a>
                     <div class="source-details">
                         Arenal, A. et al., (2024). Digital transformation, blockchain, and the music industry: A review from the perspective of performers' collective management organizations - Telecommunications Policy
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Accounting%20and%20music%20The%20role%20of%20Giuseppe%20Verdi%20in%20shaping%20the%20nineteenth-century%20culture%20industry.pdf" class="source-title" download>Accounting and Music History</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Accounting%20and%20music%20The%20role%20of%20Giuseppe%20Verdi%20in%20shaping%20the%20nineteenth-century%20culture%20industry.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Accounting and Music History
+                    </a>
                     <div class="source-details">
                         Balluchi, F. et al., (2021). Accounting and music: The role of Giuseppe Verdi in shaping the nineteenth-century culture industry – Accounting History
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue%20sharing%20at%20music%20streaming%20platforms.pdf" class="source-title" download>Revenue Sharing at Streaming Platforms</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revenue%20sharing%20at%20music%20streaming%20platforms.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Revenue Sharing at Streaming Platforms
+                    </a>
                     <div class="source-details">
                         Bergantiños, G. e Moreno-Ternero, J. (2023). Revenue sharing at music streaming platforms
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Taxes%20and%20the%20working%20musician.pdf" class="source-title" download>Taxes and the Working Musician</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Taxes%20and%20the%20working%20musician.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Taxes and the Working Musician
+                    </a>
                     <div class="source-details">
                         Friedman, A. (n.d.). Taxes and the working musician - Dollars & Sense
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Financialization%20of%20music%20song%20management%20firms%20and%20fractionalized%20copyright.pdf" class="source-title" download>Financialization of Music</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Financialization%20of%20music%20song%20management%20firms%20and%20fractionalized%20copyright.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Financialization of Music
+                    </a>
                     <div class="source-details">
                         Galuszka, P. e Legiedz, T. (2024). Financialization of music: song management firms and fractionalized copyright - Information, Communication & Society
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Constructing%20accounting%20in%20the%20mirror%20of%20the%20popular%20music.pdf" class="source-title" download>Constructing Accounting in Popular Music</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Constructing%20accounting%20in%20the%20mirror%20of%20the%20popular%20music.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Constructing Accounting in Popular Music
+                    </a>
                     <div class="source-details">
                         Jacobs, K. e Evans, E. (2012). Constructing accounting in the mirror of popular music - Accounting, Auditing & Accountability Journal
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Valuation%20of%20Music%20Catalogs.pdf" class="source-title" download>Valuation of Music Catalogs</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Valuation%20of%20Music%20Catalogs.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Valuation of Music Catalogs
+                    </a>
                     <div class="source-details">
                         Kosyuk I. e Stoikov, S. (2022). Valuation of Music Catalogs
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20effect%20of%20the%20new%20revenue%20recognition%20principle%20(IFRS%2015)%20on%20financial.pdf" class="source-title" download>IFRS 15 Financial Statement Comparability</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20effect%20of%20the%20new%20revenue%20recognition%20principle%20(IFRS%2015)%20on%20financial.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> IFRS 15 Financial Statement Comparability
+                    </a>
                     <div class="source-details">
                         Lee, W. e Choi, S. (2024). The effect of the new revenue recognition principle (IFRS 15) on financial statement comparability: Evidence from Korea – Journal of International Accounting, Auditing and Taxation
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>Inequitable Taxation of Performing Artists</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Inequitable Taxation of Performing Artists
+                    </a>
                     <div class="source-details">
                         Marian, O., (2023). The Inequitable Taxation of Low- and Mid-Income Performing Artists – UCLA Entertainment Law Review
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>Artist Taxation, Social Security and VAT</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Inequitable%20Taxation%20of%20Low-%20and%20Mid-Income%20Performing%20Artists.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Artist Taxation, Social Security and VAT
+                    </a>
                     <div class="source-details">
                         Molenaar, D. (2024). Artist Taxation, Social Security and VAT – Erasmus Universiteit Rotterdam
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Alternative%20payment%20models%20in%20the%20music%20streaming%20market%20A%20comparative%20approach%20based%20on%20stream-level%20data.pdf" class="source-title" download>Alternative Payment Models in Music Streaming</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Alternative%20payment%20models%20in%20the%20music%20streaming%20market%20A%20comparative%20approach%20based%20on%20stream-level%20data.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Alternative Payment Models in Music Streaming
+                    </a>
                     <div class="source-details">
                         Moreau, F. et al., (2024). Alternative payment models in the music streaming market: A comparative approach based on stream-level data - Information Economics and Policy
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20revenue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>Artists and Blockchain Revenue Opportunities</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20revenue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Artists and Blockchain Revenue Opportunities
+                    </a>
                     <div class="source-details">
                         Park, Y. e Kim, S. (2024). Do artists perceive blockchain as a new revenue opportunity? A social representation study of the Korean music industry – Humanities & Social Sciences Communications
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Future%20of%20Music%20Copyright%20Collectives%20in%20the%20Digital.pdf" class="source-title" download>Music Copyright and Digital Streaming</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/The%20Future%20of%20Music%20Copyright%20Collectives%20in%20the%20Digital.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Music Copyright and Digital Streaming
+                    </a>
                     <div class="source-details">
                         Priest, E. (2021). The Future of Music Copyright Collectives in the Digital Streaming Age - Columbia Journal of Law & the Arts
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20Complex%20World%20-%20Accounting%20for%20royalty%20arrangements%20-%20issues%20for%20media%20companies.pdf" class="source-title" download>Accounting for Royalty Arrangements</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20Complex%20World%20-%20Accounting%20for%20royalty%20arrangements%20-%20issues%20for%20media%20companies.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Accounting for Royalty Arrangements
+                    </a>
                     <div class="source-details">
                         PwCs Media Industry Accounting Group (2012). Making Sense of a Complex World – Accounting for Royalty Arrangements – Issues for Media Companies
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20complex%20world%20-%20Revenue%20recognition%20-%20payments%20to%20customers%20-%20issues%20for%20media%20companies%20under%20IFRS%2015.pdf" class="source-title" download>Revenue Recognition: Payments to Customers</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Making%20sense%20of%20a%20complex%20world%20-%20Revenue%20recognition%20-%20payments%20to%20customers%20-%20issues%20for%20media%20companies%20under%20IFRS%2015.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Revenue Recognition: Payments to Customers
+                    </a>
                     <div class="source-details">
                         PwCs Media Industry Accounting Group (2017). Making sense of a complex world Revenue recognition:payments to customers - issues for media companies under IFRS 15
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Blockchain%20Technology%20A%20Paradigm%20Shift%20in%20Accounting.pdf" class="source-title" download>Blockchain Technology in Accounting</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Blockchain%20Technology%20A%20Paradigm%20Shift%20in%20Accounting.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Blockchain Technology in Accounting
+                    </a>
                     <div class="source-details">
                         Singh, A. e Jaiswal, K. (2022). Blockchain Technology: A Paradigm Shift in Accounting - SMS Journal of Entrepreneurship & Innovation
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/“Breaking%20up%20the%20sky”The%20characterisation%20of%20accounting%20and%20accountants%20in%20popular%20music.pdf" class="source-title" download>Characterisation of Accounting in Popular Music</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/“Breaking%20up%20the%20sky”The%20characterisation%20of%20accounting%20and%20accountants%20in%20popular%20music.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Characterisation of Accounting in Popular Music
+                    </a>
                     <div class="source-details">
                         Smith, D. e Jacobs, K. (2011). "Breaking up the sky" – The characterisation of accounting and accountants in popular music - Accounting, Auditing &Accountability Journal
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/How%20Blockchain%20Technology%20Can%20Revolutionize%20the%20music%20Industry.pdf" class="source-title" download>Blockchain Revolution in Music</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/How%20Blockchain%20Technology%20Can%20Revolutionize%20the%20music%20Industry.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Blockchain Revolution in Music
+                    </a>
                     <div class="source-details">
                         Taghdiri, A.(2019). How Blockchain Technology Can Revolutionize the Music Industry – Journal of Sports & Entertainment Law
                     </div>
                 </div>
 
                 <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Dealing%20with%20digital%20the%20econimic%20organisation%20of%20streamed%20music.pdf" class="source-title" download>Economic Organisation of Streamed Music</a>
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Dealing%20with%20digital%20the%20econimic%20organisation%20of%20streamed%20music.pdf" class="source-title" download>
+                        <i class="fas fa-file-pdf"></i> Economic Organisation of Streamed Music
+                    </a>
                     <div class="source-details">
                         Towse, R. (2020). Dealing with digital: the economic organisation of streamed music – Media, Culture & Society
                     </div>
@@ -1232,7 +1613,7 @@
                         href="https://mail.google.com/mail/?view=cm&to=paulomariamonteiro43@gmail.com&su=Let's%20Talk%20Accounting%20%26%20Music&body=Hi%20Paulo%20Monteiro%2C%0A%0AI%20recently%20discovered%20your%20work%20combining%20accounting%20and%20music%2C%20and%20I%20found%20it%20inspiring.%20I'd%20love%20to%20connect%2C%20share%20thoughts%20or%20even%20collaborate%20on%20something%20in%20this%20space.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C"
                         target="_blank"
                     >
-                        Send an Email
+                        <span><i class="fas fa-envelope"></i> Send an Email</span>
                     </a>
                 </p>
 
@@ -1242,9 +1623,15 @@
                         href="https://www.linkedin.com/in/paulo-brito-lanca/"
                         target="_blank"
                     >
-                        Connect with me on LinkedIn
+                        <span><i class="fab fa-linkedin"></i> Connect on LinkedIn</span>
                     </a>
                 </p>
+
+                <div class="social-links">
+                    <a href="https://github.com/paulobritolanca" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -1252,8 +1639,12 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p data-pt="© 2025 - Paulo Monteiro - Universidade do Minho. All rights reserved." data-en="© 2025 - Paulo Monteiro - University of Minho. All rights reserved.">&copy; 2025 - Paulo Monteiro - Universidade do Minho. All rights reserved.</p>
-                <p data-pt="Developed with dedication to the sharing of scientific knowledge." data-en="Developed with dedication for sharing scientific knowledge.">Developed with dedication to the sharing of scientific knowledge.</p>
+                <p data-pt="© 2025 - Paulo Monteiro - Universidade do Minho. All rights reserved." data-en="© 2025 - Paulo Monteiro - University of Minho. All rights reserved.">
+                    © 2025 - Paulo Monteiro - Universidade do Minho. All rights reserved.
+                </p>
+                <p data-pt="Developed with dedication to the sharing of scientific knowledge." data-en="Developed with dedication for sharing scientific knowledge.">
+                    Developed with dedication to the sharing of scientific knowledge.
+                </p>
             </div>
         </div>
     </footer>
@@ -1264,7 +1655,7 @@
         const navLinks = document.getElementById('nav-links');
         
         mobileMenu.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
+            this.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
         
@@ -1273,6 +1664,25 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 navLinks.classList.remove('active');
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
 
@@ -1336,6 +1746,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Set default language
             changeLanguage('pt');
+            
+            // Add animation class to sections when they come into view
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
         });
     </script>
 </body>
