@@ -120,7 +120,16 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
+/* Progress Bar */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    z-index: 9999;
+    transition: width 0.1s;
+}
         /* Floating Music Notes */
         .music-note {
             position: fixed;
@@ -1644,37 +1653,53 @@
         }
 
         /* Tooltip */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
 
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--dark);
-            color: var(--light);
-            text-align: center;
-            border-radius: var(--border-radius-sm);
-            padding: 0.5rem;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: var(--transition);
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(10px);
-        }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    max-width: 300px; /* Largura máxima ajustável */
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    border-radius: var(--border-radius-sm);
+    padding: 1rem;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    pointer-events: none; /* Evita interferência com hover */
+}
 
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-            transform: translateX(-50%) translateY(-5px);
-        }
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Seta do tooltip (opcional) */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark) transparent transparent transparent;
+}
     </style>
 </head>
 <body>
@@ -2109,15 +2134,15 @@
 
     <!-- Language toggle now positioned in bottom left corner -->
     <div class="language-toggle">
-        <button class="lang-toggle-btn active" id="btn-pt" onclick="changeLanguage('pt')">PT</button>
-        <button class="lang-toggle-btn" id="btn-en" onclick="changeLanguage('en')">EN</button>
+<button class="lang-toggle-btn active" id="btn-pt" onclick="changeLanguage('pt')" aria-label="Mudar para Português">PT</button>
+<button class="lang-toggle-btn" id="btn-en" onclick="changeLanguage('en')" aria-label="Switch to English">EN</button>
     </div>
 
     <script>
         // Create cosmic background particles
         function createParticles() {
             const cosmicBg = document.getElementById('cosmic-bg');
-            const particleCount = 50;
+            const particleCount = 30;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -2142,7 +2167,19 @@
                 cosmicBg.appendChild(particle);
             }
         }
-        
+        // Barra de progresso
+const progressBar = document.createElement('div');
+progressBar.id = 'progress-bar';
+document.body.prepend(progressBar);
+
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+});
+
+
         // Create floating music notes
         function createMusicNotes() {
             const notesContainer = document.getElementById('music-notes');
@@ -2262,14 +2299,23 @@
 
         // Download function simulation
         function downloadFile(filename) {
-            const messages = {
+            // Adicione feedback visual
+    const btn = event.currentTarget;
+    btn.innerHTML = `<i class="fas fa-check"></i> ${btn.textContent}`;
+    btn.style.backgroundColor = "var(--success)";
+    
+    setTimeout(() => {
+        btn.innerHTML = `<i class="fas fa-download"></i> ${btn.textContent}`;
+        btn.style.backgroundColor = "";
+    }, 2000);
+        const messages = {
                 pt: {
                     title: `Download iniciado: ${filename}`,
-                    note: 'Nota: Este é um site de demonstração. Substitua esta função pela lógica real de download dos seus arquivos.'
+                    note: 'Boa leitura!'
                 },
                 en: {
                     title: `Download started: ${filename}`,
-                    note: 'Note: This is a demonstration site. Replace this function with the actual download logic for your files.'
+                    note: 'Happy reading!'
                 }
             };
             
