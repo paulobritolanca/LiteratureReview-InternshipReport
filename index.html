@@ -1851,23 +1851,23 @@
                     Access all research materials, presentations, and supplementary resources related to this academic work on accounting in the digital music sector.
                 </p>
             </div>
-            <div class="downloads-grid">
-                <div class="download-card">
-                    <div class="download-icon"><i class="fas fa-file-powerpoint"></i></div>
-                    <h3 data-pt="Slides de Apresentação" data-en="Presentation Slides">Presentation Slides</h3>
-                    <p data-pt="Apresentação em formato PowerPoint do trabalho de pesquisa com destaque para a análise visual e principais conclusões."
-                       data-en="Complete PowerPoint presentation of the research work with visual analysis and key findings.">
-                        Complete PowerPoint presentation of the research work with visual analysis and key findings.
-                    </p>
-                    <div class="language-selector">
-                        <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-portuguese.pptx')">
-                            <span><i class="fas fa-language"></i> <span data-pt="Português" data-en="Portuguese">Portuguese</span></span>
-                        </a>
-                        <a href="javascript:void(0)" class="lang-btn" onclick="downloadFile('presentation-english.pptx')">
-                            <span><i class="fas fa-language"></i> <span data-pt="Inglês" data-en="English">English</span></span>
-                        </a>
-                    </div>
-                </div>
+<div class="downloads-grid">
+    <div class="download-card">
+        <div class="download-icon"><i class="fas fa-file-powerpoint"></i></div>
+        <h3 data-pt="Slides de Apresentação" data-en="Presentation Slides">Presentation Slides</h3>
+        <p data-pt="Apresentação em formato PowerPoint do trabalho de pesquisa com destaque para a análise visual e principais conclusões."
+           data-en="Complete PowerPoint presentation of the research work with visual analysis and key findings.">
+            Complete PowerPoint presentation of the research work with visual analysis and key findings.
+        </p>
+        <div class="language-selector">
+            <a href="https://mega.nz/file/L5xEWYhZ#9SJ9oKre50ZWYXLAc6HLgcMYNvyEDI-fjxBh4Jekv7c" class="lang-btn" target="_blank" download="Apresentacao-Portugues.pptx">
+                <span><i class="fas fa-language"></i> <span data-pt="Português" data-en="Portuguese">Portuguese</span></span>
+            </a>
+            <a href="https://mega.nz/file/2shgRYyB#vFQcZBBg5K4me0zY60AQqUsOtaBguky2EzFoLAyB198" class="lang-btn" target="_blank" download="Presentation-English.pptx">
+                <span><i class="fas fa-language"></i> <span data-pt="Inglês" data-en="English">English</span></span>
+            </a>
+        </div>
+    </div>
 
                 <div class="download-card">
                     <div class="download-icon"><i class="fas fa-file-alt"></i></div>
@@ -1876,10 +1876,7 @@
                        data-en="Complete research report, comprising the methodology, detailed findings, and final conclusions.">
                         Complete research report, comprising the methodology, detailed findings, and final conclusions.
                     </p>
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Revis%C3%A3o%20Liter%C3%A1ria%20%2B%20Relat%C3%B3rio%20De%20Est%C3%A1gio%20-%20Paulo%20Monteiro%20-%20A%20Relev%C3%A2ncia%20da%20Contabilidade%20para%20o%20Setor%20Musical%20-%20Vers%C3%A3o%20Final.pdf" 
-                       class="download-btn" download>
-                        <span><i class="fas fa-download"></i> <span data-pt="Baixar (Apenas em Português)" data-en="Download (Only in Portuguese)">Download Abstract (Portuguese)</span></span>
-                    </a>
+
                 </div>
 
                 <div class="download-card">
@@ -2020,8 +2017,8 @@
                     </div>
                 </div>
 
-                <div class="source-item">
-                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20revenue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>
+                <div class="source-item">reve
+                    <a href="https://raw.githubusercontent.com/paulobritolanca/LiteratureReview-InternshipReport/main/Do%20artists%20perceive%20blockchain%20as%20a%20new%20nue%20opportunity.%20A%20social%20representation%20study%20of%20the%20Korean%20Music%20Industry.pdf" class="source-title" download>
                         <i class="fas fa-file-pdf"></i> <span data-pt="Artistas e as Oportunidades de Receita com a Blockchain" data-en="Artists and Blockchain Revenue Opportunities">Artists and Blockchain Revenue Opportunities</span>
                     </a>
                     <div class="source-details">
@@ -2297,68 +2294,98 @@ window.addEventListener('scroll', () => {
             }
         }
 
-        // Download function simulation
-        function downloadFile(filename) {
-            // Adicione feedback visual
-    const btn = event.currentTarget;
-    btn.innerHTML = `<i class="fas fa-check"></i> ${btn.textContent}`;
-    btn.style.backgroundColor = "var(--success)";
+// Atualize a função downloadFile para ser mais genérica
+function downloadFile(filename, event) {
+    // Prevent default behavior if event is passed
+    if (event) {
+        event.preventDefault();
+    }
     
-    setTimeout(() => {
-        btn.innerHTML = `<i class="fas fa-download"></i> ${btn.textContent}`;
-        btn.style.backgroundColor = "";
-    }, 2000);
-        const messages = {
-                pt: {
-                    title: `Download iniciado: ${filename}`,
-                    note: 'Boa leitura!'
-                },
-                en: {
-                    title: `Download started: ${filename}`,
-                    note: 'Happy reading!'
-                }
-            };
-            
-            const msg = messages[currentLanguage] || messages.pt;
-            
-            // Create a beautiful notification instead of alert
-            const notification = document.createElement('div');
-            notification.style.position = 'fixed';
-            notification.style.bottom = '20px';
-            notification.style.right = '20px';
-            notification.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-            notification.style.color = 'white';
-            notification.style.padding = '20px';
-            notification.style.borderRadius = '10px';
-            notification.style.borderLeft = '5px solid var(--primary)';
-            notification.style.maxWidth = '300px';
-            notification.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
-            notification.style.zIndex = '10000';
-            notification.style.transform = 'translateY(100px)';
-            notification.style.opacity = '0';
-            notification.style.transition = 'all 0.5s ease';
-            notification.innerHTML = `
-                <h4 style="margin-bottom: 10px; color: var(--primary);">${msg.title}</h4>
-                <p style="font-size: 0.9rem;">${msg.note}</p>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Animate in
-            setTimeout(() => {
-                notification.style.transform = 'translateY(0)';
-                notification.style.opacity = '1';
-            }, 10);
-            
-            // Animate out after 5 seconds
-            setTimeout(() => {
-                notification.style.transform = 'translateY(100px)';
-                notification.style.opacity = '0';
-                setTimeout(() => {
-                    notification.remove();
-                }, 500);
-            }, 5000);
+    // Get current language (fallback to Portuguese if not set)
+    const currentLanguage = window.currentLanguage || 'pt';
+    
+    // Add visual feedback to button if clicked
+    const btn = event ? event.currentTarget : null;
+    if (btn) {
+        const originalContent = btn.innerHTML;
+        // Find the text span more reliably
+        const textSpan = btn.querySelector('[data-pt]');
+        const btnText = textSpan ? textSpan.textContent : 'Download';
+        
+        btn.innerHTML = `<i class="fas fa-check"></i> ${btnText}`;
+        btn.style.backgroundColor = "var(--success)";
+        
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.style.backgroundColor = "";
+        }, 2000);
+    }
+
+    const messages = {
+        pt: {
+            title: `Download iniciado: ${filename}`,
+            note: 'Boa leitura!'
+        },
+        en: {
+            title: `Download started: ${filename}`,
+            note: 'Happy reading!'
         }
+    };
+    
+    const msg = messages[currentLanguage] || messages.pt;
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = 'download-notification';
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+    notification.style.color = 'white';
+    notification.style.padding = '20px';
+    notification.style.borderRadius = '10px';
+    notification.style.borderLeft = '5px solid var(--primary)';
+    notification.style.maxWidth = '300px';
+    notification.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+    notification.style.zIndex = '10000';
+    notification.style.transform = 'translateY(100px)';
+    notification.style.opacity = '0';
+    notification.style.transition = 'all 0.5s ease';
+    notification.innerHTML = `
+        <h4 style="margin-bottom: 10px; color: var(--primary);">${msg.title}</h4>
+        <p style="font-size: 0.9rem;">${msg.note}</p>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateY(0)';
+        notification.style.opacity = '1';
+    }, 10);
+    
+    // Animate out after 5 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateY(100px)';
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            notification.remove();
+        }, 500);
+    }, 5000);
+    
+    // Trigger actual download after a small delay
+    setTimeout(() => {
+        if (btn && btn.href) {
+            // Create a temporary anchor to force download
+            const a = document.createElement('a');
+            a.href = btn.href;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    }, 100);
+}
 
         // New Email Function
         function openEmail() {
@@ -2372,7 +2399,20 @@ window.addEventListener('scroll', () => {
             
             window.open(`https://mail.google.com/mail/?view=cm&to=paulomariamonteiro43@gmail.com&su=${subject}&body=${body}`, '_blank');
         }
-
+        
+function showDownloadFeedback(filename, lang) {
+    const messages = {
+        pt: `Download iniciado: ${filename}`,
+        en: `Download started: ${filename}`
+    };
+    
+    const notification = document.createElement('div');
+    notification.className = 'download-notification';
+    notification.textContent = messages[lang] || messages.en;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => notification.remove(), 3000);
+}
         // Smooth navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
